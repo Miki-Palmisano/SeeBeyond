@@ -30,24 +30,28 @@ body {
     top: 0;
     left: 0;
     clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%);
+    background-color: #F9F223;
 }
 
 .top-right {
     top: 0;
     right: 0;
     clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 60% 100%, 0 40%);
+    background-color: chartreuse;
 }
 
 .bottom-left {
     bottom: 0;
     left: 0;
     clip-path: polygon(0% 0%, 40% 0%, 100% 60%, 100% 100%, 0% 100%);
+    background-color: tomato;
 }
 
 .bottom-right {
     bottom: 0;
     right: 0;
     clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 60%);
+    background-color:steelblue;
 }
 
 .center {
@@ -61,7 +65,6 @@ body {
 
 /* Stile per il bottone attivo */
 .active {
-    background-color: #F9F223;
     color: #000000;
 }
 
@@ -69,8 +72,4 @@ body {
 .inactive {
     background-color: gray;
     filter: invert(100%);
-}
-
-.image {
-    width: 20vw;
 }
