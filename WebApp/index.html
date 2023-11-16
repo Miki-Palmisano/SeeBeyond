@@ -8,14 +8,15 @@
     <link rel="icon" type="image/png" sizes="32x32" href="icon/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="icon/favicon-16x16.png">
     <link rel="manifest" href="icon/site.webmanifest">
+    <script type="text/javascript" src="./function.js"></script>
 </head>
 
-<body>
+<body onLoad="buttonState">
     <div class="button-container">
         <button class="button inactive top-left" id="infoButton">
             <img src="./media/Info.png" style="width: 20vw;">
         </button>
-        <button class="button inactive top-right" id="googleButton">
+        <button class="button inactive top-right">
             <img src="./media/OCR.png" style="width: 28vw;">
         </button>
         <button class="button inactive bottom-left">

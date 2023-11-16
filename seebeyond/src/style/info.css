@@ -1,0 +1,35 @@
+.information{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+p{
+    font-size: 6vw;
+}
+
+h1{
+    font-size: 12vw;
+    margin-top: -10px;
+}
+
+.GoBack{
+    background-color: #9B37F2;
+    color: #ffffff;
+    font-size: 7vw;
+    position: absolute;
+    bottom: 0;
+    border: none;
+    border-radius: 12px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    height: 150px;
+}
+
+.buttonContainer{
+    position: absolute;
+    width: 100%;
+    align-content: center;
+    bottom: 0;
+}

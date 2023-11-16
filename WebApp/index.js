@@ -8,15 +8,12 @@ powerButton.addEventListener("click", function() {
             buttons[i].classList.toggle("inactive");
             buttons[i].classList.toggle("active");
         }
+        if(infoButton.classList.contains("active")){
+            document.cookie = "info=1;";
+        } else {
+            document.cookie = "info=0;";
+        }
     }
-});
-
-googleButton.addEventListener("click", function() {
-    if (googleButton.classList.contains("active")) {
-        // Mostra un popup con il testo "Google"
-        alert("Sono Attivo");
-    }
-    else alert("Sono Disattivo");
 });
 
 infoButton.addEventListener("click", function(){
