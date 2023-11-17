@@ -12,6 +12,9 @@
 //import librerie React
 import React, { Component , useState } from 'react';
 
+//import functions
+import Cookie from './functions/cookie';
+
 //import componenti, ad ogni componente è associata una pagina
 import Home from './components/home';
 import Info from './components/info';
@@ -28,31 +31,6 @@ import OnOffImage from './images/OnOff.png';
 
 function App(){
   
-  /*
-  //cookie
-  function setCookie(name, value, days) {
-    var expires = "";
-    if (days) {
-      var date = new Date();
-      date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
-  }
-
-  function getCookie(name) {
-    var nameEQ = name + "=";
-    var ca = document.cookie.split(';');
-    for (var i = 0; i < ca.length; i++) {
-      var c = ca[i];
-      while (c.charAt(0) === ' ') c = c.substring(1, c.length);
-      if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-  }
-  //fine cookie
-  */
-
   //funzione react, ActivePage è letteralmente la pagina attiva e viene inizializzata a Home
   const [ActivePage, setActivePage] = useState('Home');
 

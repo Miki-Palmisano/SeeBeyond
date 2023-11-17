@@ -3,12 +3,12 @@ import React, { Component , useState } from 'react';
 import Button from '../components/button';
 
 function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
-      
+
         //funzione che cambia lo stato del bottone, richiama la funziona passata come props
         const handleSwitchButtonState = () => {
           setIsActive(!isActive);
-        };
-
+        };  
+        
         //funzione che cambia la pagina attiva, richiama la funziona passata come props
         const handleSwitchPage = (buttonID) => { 
           switch(buttonID){
@@ -40,6 +40,7 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
                 buttonImg={button.img}
                 onSwitchButtonState={handleSwitchButtonState}
                 onSwitchPage={handleSwitchPage}
+                //onSetCookie={handleSetCookie}
               />
             ))}
           </>
