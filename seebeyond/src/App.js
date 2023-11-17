@@ -1,10 +1,25 @@
-import React, { Component , useState } from 'react';
-import Home from './components/home';
-import Info from './components/info'; // import Info component
-import OCR from './components/ocr'; // import OCR component
-import Maps from './components/maps'; // import Maps component
+//Nella cartella 'images' ci vanno tutte le immagini usate nel progetto
+//Nella cartella 'style' ci vanno tutti i file css usati nel progetto
+//Nella cartella 'components' ci vanno tutti i componenti del progetto
+//Nella cartella 'functions' ci vanno tutte le funzioni del progetto (si esatto quelle dei cookie ad esempio)
+//eventualmente creare le cartelle mancanti
+//import NOMEFUNZIONE from 'PATTERNFUNZIONE.js' per importare una funzione specifica
+//le 'variabili' passate ai figli si chiamano Props, le variabili definite nei padri si chiamano State
+//è consigliato rispettare la nomenclatura HANDLEnome per la funzione padre e ONnome per la funzione figlio
 
-//import delle immagini
+//PROPRIETà DI SEEBEYOND, TUTTI I DIRITTI E USI RISERVATI
+
+//import librerie React
+import React, { Component , useState } from 'react';
+
+//import componenti, ad ogni componente è associata una pagina
+import Home from './components/home';
+import Info from './components/info';
+import OCR from './components/ocr'; 
+import Maps from './components/maps';
+import Voice from './components/voice';
+
+//import delle immagini, ad ogni immagine è associato un bottone
 import InfoImage from './images/Info.png';
 import OCRImage from './images/OCR.png';
 import MapsImage from './images/Maps.png';
@@ -38,11 +53,14 @@ function App(){
   //fine cookie
   */
 
+  //funzione react, ActivePage è letteralmente la pagina attiva e viene inizializzata a Home
   const [ActivePage, setActivePage] = useState('Home');
 
+  //funzione react, isActive è letteralmente lo stato del bottone e viene inizializzato a false (spenti)
   const [isActive, setIsActive] = useState(false);
       
-  //definizione attributi bottone
+  //Vettore di Strutture dati, sono i dati di ogni singolo bottone, aggiungere elementi qua corrisponde ad aggiungere bottoni
+  //alla pagina home
   const buttons = [
     { id: 1, name: 'top-left', state: isActive, img: InfoImage },
     { id: 2, name: 'top-right', state: false, img: OCRImage },
@@ -51,26 +69,29 @@ function App(){
     { id: 5, name: 'center', state: true, img: OnOffImage },
   ];
   
+  //console log di quel attributo serve a  vedere i report (eventuali errori) facendo Ispezione Elemento -> Console
   console.log(ActivePage);
+
+  //funzione che cambia la pagina attiva
   const handlePage = (page) => {
     setActivePage(page);
   }
 
   let activePage;
 
-  //sitch per assegnare ad ActivePage la pagina attiva
+  //ogni pagina ha un bottone che la richiama, il bottone è associato ad una funzione che cambia la pagina attiva
   switch(ActivePage){
     case 'Home':
-      activePage = <Home  
-        ActivePage={ActivePage}
-        onActivePage={handlePage}
-        buttons={buttons}
-        isActive={isActive}
-        setIsActive={setIsActive}
+      activePage = <Home  //Home è il componente home.js 
+        ActivePage={ActivePage} 
+        onActivePage={handlePage} 
+        buttons={buttons} 
+        isActive={isActive}  
+        setIsActive={setIsActive} 
       />;
       break;
     case 'Info':
-      activePage = <Info  
+      activePage = <Info  //Info è il componente info.js
         ActivePage={ActivePage}
         onActivePage={handlePage}
         buttons={buttons}
@@ -79,7 +100,7 @@ function App(){
       />;
       break;
     case 'OCR':
-      activePage = <OCR  
+      activePage = <OCR  //OCR è il componente ocr.js
         ActivePage={ActivePage}
         onActivePage={handlePage}
         buttons={buttons}
@@ -88,7 +109,7 @@ function App(){
       />;
       break;
     case 'Maps':
-      activePage = <Maps  
+      activePage = <Maps  //Maps è il componente maps.js
         ActivePage={ActivePage}
         onActivePage={handlePage}
         buttons={buttons}
@@ -97,11 +118,17 @@ function App(){
       />;
       break;
     case 'Voice':
-      // add code for Voice case
+      activePage = <Voice  //Voice è il componente voice.js
+        ActivePage={ActivePage}
+        onActivePage={handlePage}
+        buttons={buttons}
+        isActive={isActive}
+        setIsActive={setIsActive}
+      />;
       break;
   }
 
-  return activePage; // return activePage component
+  return activePage; //ritorna il componente selezionato dallo switch
       
 }
 
