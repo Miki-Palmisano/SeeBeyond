@@ -46,8 +46,8 @@ function App(){
   const buttons = [
     { id: 1, name: 'top-left', state: isActive, img: InfoImage },
     { id: 2, name: 'top-right', state: false, img: OCRImage },
-    { id: 3, name: 'bottom-left', state: false, img: MapsImage },
-    { id: 4, name: 'bottom-right', state: false, img: VoiceImage },
+    { id: 3, name: 'bottom-left', state: isActive, img: MapsImage },
+    { id: 4, name: 'bottom-right', state: isActive, img: VoiceImage },
     { id: 5, name: 'center', state: true, img: OnOffImage },
   ];
   

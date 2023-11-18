@@ -1,0 +1,74 @@
+.information{
+    text-align: center;
+   font-family: Arial, Helvetica, sans-serif;
+}
+
+h1{
+   font-size: 12vw;
+   margin-top: -10px;
+}
+
+.MapsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    width: 96%;
+    top: 16%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #ff0000;
+    border-radius: 10px;
+ }
+
+.MapsButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 7vw;
+    border: none;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    height: 100px;
+}
+
+.GoBackContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 10px;
+    width: 96%;
+    padding: 5px;
+    background-color: #9B37F2;
+    border-radius: 10px;
+ }
+
+.GoBack {
+
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   color: #ffffff;
+   font-size: 7vw;
+   border: none;
+   border-radius: 12px;
+   width: 96%;
+   margin-left: 2%;
+   margin-right: 2%;
+   margin-bottom: 2%;
+   height: 150px;
+}
+
+.buttonContainer {
+   width: 100%;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+}
