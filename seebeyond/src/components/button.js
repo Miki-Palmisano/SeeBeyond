@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../style/button.css';
-import Cookie from '../functions/cookie';
 
 function Button({buttonState, buttonName, buttonImg, onSwitchButtonState, buttonID, onSwitchPage}){ //onSetCookie
 
@@ -10,12 +9,6 @@ function Button({buttonState, buttonName, buttonImg, onSwitchButtonState, button
         const checkButton = (buttonID) => { //controlla quale bottone viene premuto e richiama la funzione passata come props
             if(buttonID==5){ //se è il bottone di PowerState
                 onSwitchButtonState();
-                //prova cookie
-                if(buttonState){
-                    var d = new Date();
-                    //onSetCookie({buttonID, buttonState, d});
-                }
-                //
             }else if(buttonState){ //se è qualsiasi altro bottone ma acceso
                 onSwitchPage(buttonID);
             }

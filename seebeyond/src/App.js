@@ -13,14 +13,14 @@
 import React, { Component , useState } from 'react';
 
 //import functions
-import Cookie from './functions/cookie';
+import {GetCookie, SetCookie} from './functions/cookie.js'; //se ne importo solo una mi da errore
 
 //import componenti, ad ogni componente è associata una pagina
-import Home from './components/home';
-import Info from './components/info';
-import OCR from './components/ocr'; 
-import Maps from './components/maps';
-import Voice from './components/voice';
+import Home from './components/home.js';
+import Info from './components/info.js';
+import OCR from './components/ocr.js'; 
+import Maps from './components/maps.js';
+import Voice from './components/voice.js';
 
 //import delle immagini, ad ogni immagine è associato un bottone
 import InfoImage from './images/Info.png';
@@ -34,8 +34,12 @@ function App(){
   //funzione react, ActivePage è letteralmente la pagina attiva e viene inizializzata a Home
   const [ActivePage, setActivePage] = useState('Home');
 
-  //funzione react, isActive è letteralmente lo stato del bottone e viene inizializzato a false (spenti)
-  const [isActive, setIsActive] = useState(false);
+  //assegno a buttonState il valore del cookie, convertendolo in booleano (essendo String)
+  var buttonState = false;
+  if(GetCookie('buttonState') == 'true') { var buttonState = true; }
+
+  //funzione react, isActive è letteralmente lo stato del bottone e viene inizializzato al valore della variabile buttonState
+  const [isActive, setIsActive] = useState(buttonState);
       
   //Vettore di Strutture dati, sono i dati di ogni singolo bottone, aggiungere elementi qua corrisponde ad aggiungere bottoni
   //alla pagina home
@@ -48,7 +52,7 @@ function App(){
   ];
   
   //console log di quel attributo serve a  vedere i report (eventuali errori) facendo Ispezione Elemento -> Console
-  console.log(ActivePage);
+  console.log(isActive);
 
   //funzione che cambia la pagina attiva
   const handlePage = (page) => {

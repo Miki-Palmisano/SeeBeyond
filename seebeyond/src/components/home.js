@@ -2,10 +2,13 @@ import React, { Component , useState } from 'react';
 
 import Button from '../components/button';
 
+import {GetCookie, SetCookie} from '../functions/cookie.js'; //se ne importo solo una mi da errore
+
 function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
 
         //funzione che cambia lo stato del bottone, richiama la funziona passata come props
         const handleSwitchButtonState = () => {
+          SetCookie('buttonState', !isActive, 2); //cambio il valore del cookie
           setIsActive(!isActive);
         };  
         
@@ -40,7 +43,6 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
                 buttonImg={button.img}
                 onSwitchButtonState={handleSwitchButtonState}
                 onSwitchPage={handleSwitchPage}
-                //onSetCookie={handleSetCookie}
               />
             ))}
           </>
