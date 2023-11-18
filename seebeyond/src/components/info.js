@@ -9,14 +9,16 @@ function Info ({ActivePage, onActivePage}){
     return(
         <>
         <div className="information">
-        <h1>Info Page</h1>
-        <p>
-            SeeBeyond &egrave; un progetto, ideato da un gruppo di studenti del politecnico di Bari, rivolto alle persone con acuit&agrave; visiva che cercano soluzioni innovative ed efficaci per orientarsi in qualsiasi tipo di ambiente.
-        </p>
+            <h1>Info Page</h1>
+            <p>
+                SeeBeyond &egrave; un progetto, ideato da un gruppo di studenti del politecnico di Bari, rivolto alle persone con acuit&agrave; visiva che cercano soluzioni innovative ed efficaci per orientarsi in qualsiasi tipo di ambiente.
+            </p>
         </div>
         <div className="buttonContainer">
-            <button className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</button>
-        </div>
+            <button className="GoBackContainer">
+                <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
+            </button>
+        </div>      
         </>
     );
 

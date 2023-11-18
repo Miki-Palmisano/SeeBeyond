@@ -1,10 +1,11 @@
 .information{
-    text-align: center;
+     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 p{
-    font-size: 6vw;
+    font-size: 10vw;
+    margin-bottom: 50px;
 }
 
 h1{
@@ -12,12 +13,25 @@ h1{
     margin-top: -10px;
 }
 
-.GoBack{
+.GoBackContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 10px;
+    width: 96%;
+    padding: 5px;
     background-color: #9B37F2;
+    border-radius: 10px;
+}
+
+.GoBack {
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
     color: #ffffff;
     font-size: 7vw;
-    position: absolute;
-    bottom: 0;
     border: none;
     border-radius: 12px;
     width: 96%;
@@ -27,9 +41,11 @@ h1{
     height: 150px;
 }
 
-.buttonContainer{
-    position: absolute;
+.buttonContainer {
     width: 100%;
-    align-content: center;
-    bottom: 0;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }

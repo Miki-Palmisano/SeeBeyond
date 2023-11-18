@@ -39,12 +39,12 @@
 }
 
 .center {
-    top: 20%;
-    left: 20%;
+    top: 20.5%;
+    left: 20.5%;
     background-color:#9B37F2;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    width: 60%;
-    height: 60%;
+    width: 59%;
+    height: 59%;
 }
 
 .active {
