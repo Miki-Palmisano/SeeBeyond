@@ -11,31 +11,52 @@ const Voice = ({ActivePage, onActivePage}) => {
     const commands = [
         {
             command: 'Torna indietro',
-            callback:() => handleGoBack()
+            callback:() =>  {
+                handleGoBack();
+                SpeechRecognition.stopListening({continuous: false});
+            }
         },
         {
             command: 'Torna alla home',
-            callback:() => handleGoBack()
+            callback:() =>  {
+                handleGoBack();
+                SpeechRecognition.stopListening({continuous: false});
+            }
         },
         {
             command: 'Torna alla pagina precedente',
-            callback:() => handleGoBack()
+            callback:() =>  {
+                handleGoBack();
+                SpeechRecognition.stopListening({continuous: false});
+            }
         },
         {
             command: 'Apri Home',
-            callback:() => handleGoBack()
+            callback:() =>  {
+                handleGoBack();
+                SpeechRecognition.stopListening({continuous: false});
+            }
         },
         {
             command: 'Apri pagina Home',
-            callback:() => handleGoBack()
+            callback:() => {
+                handleGoBack();
+                SpeechRecognition.stopListening({continuous: false});
+            }
         },
         {
             command: 'Apri Maps',
-            callback:() => onActivePage('Maps')//window.open("https://maps.google.com")
+            callback:() => {
+                onActivePage('Maps');//window.open("https://maps.google.com")
+                SpeechRecognition.stopListening({continuous: false});
+            }
         },
         {
             command: 'Apri Info',
-            callback:() => onActivePage('Info')
+            callback:() => {
+                onActivePage('Info');
+                SpeechRecognition.stopListening({continuous: false});
+            }
         }
     ]
 
@@ -55,10 +76,18 @@ const Voice = ({ActivePage, onActivePage}) => {
             <h1>Assistente Vocale</h1>
         </div>
         <div>
-            <p>Microphone: {listening ? 'on' : 'off'}</p>
-            <button onClick={() => SpeechRecognition.startListening({continuous: true, language: 'it-IT'})}>Start</button>
-            <button onClick={() => SpeechRecognition.stopListening({continuous: false})}>Stop</button>
-            <button onClick={resetTranscript}>Reset</button>
+            <p>Microfono: {listening ? 'on' : 'off'}</p>
+        </div>
+        <div>
+            <button className="StartContainer"> 
+                <span className="Start" onClick={() => SpeechRecognition.startListening({continuous: true, language: 'it-IT'})}>AVVIA</span>
+            </button>
+            <button className="StopContainer"> 
+                <span className="Stop" onClick={() => SpeechRecognition.stopListening({continuous: false})}>STOP</span>
+            </button>
+            <button className="ResetContainer"> 
+                <span className="Reset" onClick={resetTranscript}>RESET</span>
+            </button>
             <p>{transcript}</p>
         </div>
         <div className="buttonContainer">
