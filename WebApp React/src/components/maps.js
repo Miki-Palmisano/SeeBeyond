@@ -10,9 +10,8 @@ function Maps({ActivePage, onActivePage}){
         <>  
         <div className="information">
             <h1>Maps</h1>
-            
         </div>
-        <div className="ButtonContainer">   
+        <div>   
             <button className="MapsContainer">
                 <span className="MapsButton" onClick={() => window.open("https://maps.google.com")}>Avvia Maps</span>
             </button>

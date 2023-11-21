@@ -38,7 +38,11 @@ h1{
 
 .GoBackContainer {
     display: flex;
+    margin-top: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
     justify-content: center;
+    text-align: center;
     align-items: flex-end;
     position: fixed;
     bottom: 10px;
@@ -46,6 +50,8 @@ h1{
     padding: 5px;
     background-color: #9B37F2;
     border-radius: 10px;
+    justify-content: center;
+    align-items: center;
  }
 
 .GoBack {
@@ -70,5 +76,5 @@ h1{
    display: flex;
    justify-content: center;
    align-items: center;
-   height: 100vh;
+   height: 50vh;
 }

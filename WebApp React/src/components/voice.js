@@ -1,8 +1,10 @@
-import '../style/voice.css'
-import React from 'react';
+import '../style/voice2.css'
+import React, { useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const Voice = ({ActivePage, onActivePage}) => {
+
+    const [isActive, setIsActive] = useState(false); // Aggiungi questo stato
 
     const handleGoBack = () => {
         onActivePage('Home');
@@ -72,6 +74,42 @@ const Voice = ({ActivePage, onActivePage}) => {
     }
     return(
         <>
+        <body>
+        <div className="information">
+            <h1>Assistente Vocale</h1>
+        </div>
+        <div>
+            <p>Microfono: {listening ? 'on' : 'off'}</p>
+        </div>
+        <div>
+           <button className={isActive ? "StopContainer" : "StartContainer"} onClick={() => {
+                        setIsActive(!isActive); // Cambia lo stato quando il pulsante viene cliccato
+                        if(!isActive){
+                            resetTranscript();
+                            SpeechRecognition.startListening({continuous: true, language: 'it-IT'});
+                        }
+                        else SpeechRecognition.stopListening({continuous: false})
+                    }
+                }>
+                <span className={isActive ? "Stop" : "Start"}>{isActive ? "STOP" : "AVVIA"}</span>
+            </button>
+            <p>{transcript}</p>
+        </div>
+        <div className="ButtonContainer">
+            <button className="GoBackContainer">
+                <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
+            </button>
+        </div>
+        </body>
+        </>
+    );
+}
+
+export default Voice;
+
+/*
+return(
+        <>
         <div className="information">
             <h1>Assistente Vocale</h1>
         </div>
@@ -97,6 +135,4 @@ const Voice = ({ActivePage, onActivePage}) => {
         </div>
         </>
     );
-}
-
-export default Voice;
+*/
