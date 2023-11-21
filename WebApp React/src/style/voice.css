@@ -1,140 +1,245 @@
-.information{
-   text-align: center;
-   font-family: Arial, Helvetica, sans-serif;
+body {
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-p{
-   font-size: 10vw;
-   margin-bottom: 10%;
-}
-
+.Information{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+  
 h1{
    font-size: 12vw;
-   margin-top: -10px;
+   margin-top: 10px;
+   margin-bottom: 5%;
+}
+ 
+p{
+    font-size: 6vw;
+    margin-bottom: 0%;
+    margin-top: 0%;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+    justify-content: center;
+}
+
+.Riga1{
+   display: flex;
+   flex-direction: row;
+   justify-content: start;
+   align-items: center;
+   margin-left: 2%;
+   margin-right: 2%;
+}
+
+.CommandContainer{
+   display: flex;
+   position: center;
+   justify-content: center; 
+   align-items: center;
+   width: 32%;
+   margin-left: 5%;
+   margin-right: 5%;
+   height: 40%;
+   padding: 5px;
+   background-color: #f0ec00;
+   border-radius: 10px;
+   margin-bottom: 5%;
+   margin-top: 5%;
+}
+
+.Command{
+   position: center;
+   width: 80%;
+   height: 20%;
+   padding: 5px;
+   border-radius: 10px;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin-left: 10%;
+   margin: 10%;
+   margin-top: 2%;
+   margin-bottom: 2%;
+   font-size: 6vw;
+}
+
+.BodyPopUp{
+   width: 20px;
+   height: 20px;
+   margin: 0 auto;
+   overflow: auto;
+}
+
+ul{
+      font-size: 8vw;
+      margin-bottom: 5%;
+      margin-top: 0%;
+      text-align: left;
+      display: flex;
+      justify-content: center;
+      align-items: left;
+      width: 90%;
+      margin-left: 5%;
+      margin-right: 5%;
+      flex-direction: column;
+}
+
+.PopUpText{
+   font-size: 10vw;
+   margin-bottom: 5%;
+   margin-top: 5%;
+   margin-left: 5%;
+   margin-right: 5%;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 90%;
+   height: 90%;
+}
+ 
+.Modal {
+   position: fixed; /* Posiziona il modale in modo fisso rispetto alla finestra del browser */
+   top: 50%; /* Centra il modale verticalmente */
+   left: 50%; /* Centra il modale orizzontalmente */
+   transform: translate(-50%, -50%); /* Centra il modale rispetto al suo punto di origine */
+   background-color: #ff0000;
+   border-radius: 10px;
+   width: 80%;
+   height: 80%;
+   padding: 5px;
+   display: flex;
+   justify-content:left;
+   flex-direction: column;
+   align-items: left;
+   z-index: 2;
+   border: 2px solid #000000;
+}
+
+.CloseContainer{
+   display: flex;
+   position: center;
+   width: 80%;
+   margin-left: 10%;
+   margin-right: 10%;
+   height: 40%;
+   padding: 5px;
+   background-color: #00f0e0;
+   border-radius: 10px;
+   margin-bottom: 5%;
+   margin-top: 5%;
+}
+
+.Close {
+   position: center;
+   width: 96%;
+   padding: 5px;
+   background-color: #00f0e0;
+   border-radius: 10px;
+   display: inline-block;
+   margin-left: 2%;
+   margin-right: 2%;
+   margin-top: 2%;
+   margin-bottom: 2%;
+   font-size: 6vw;
 }
 
 .StartContainer{
-   display: flex;
-   justify-content: center;
-   align-items: flex-end;
-   position:left;
-   width: 30%;
-   padding: 5px;
-   background-color: #56f000;
-   border-radius: 10px;
-   display: inline-block;
-   margin-left: 1%;
-   margin-right: 1%;
-   margin-top: -25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position:left;
+    width: 96%;
+    padding: 5px;
+    background-color: #56f000;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: -10px;
 }
-
+ 
 .Start{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: #ffffff;
-   font-size: 8vw;
-   border: none;
-   border-radius: 4px;
-   width: 96%;
-   margin-left: 2%;
-   margin-right: 2%;
-   height: 80px;
-   flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 8vw;
+    border: none;
+    border-radius: 4px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 80px;
+    flex-grow: 1;
 }
-
+ 
 .StopContainer{
-   display: flex;
-   justify-content: center;
-   align-items: flex-end;
-   position:center;
-   width: 30%;
-   padding: 5px;
-   background-color: #ff0000;
-   border-radius: 10px;
-   display: inline-block;
-   margin-left: 1%;
-   margin-right: 1%;
-   margin-top: -25px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position:center;
+    width: 96%;
+    padding: 5px;
+    background-color: #ff0000;
+    border-radius: 10px;
+    display: inline-block;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-top: -10px;
 }
-
+ 
 .Stop{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: #ffffff;
-   font-size: 8vw;
-   border: none;
-   border-radius: 4px;
-   width: 96%;
-   margin-left: 2%;
-   margin-right: 2%;
-   height: 80px;
-   flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 8vw;
+    border: none;
+    border-radius: 4px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 80px;
+    flex-grow: 1;
 }
-
-.ResetContainer{
-   display: flex;
-   justify-content: center;
-   align-items: flex-end;
-   position:right;
-   width: 30%;
-   padding: 5px;
-   background-color: #3750f0;
-   border-radius: 10px;
-   display: inline-block;
-   margin-left: 1%;
-   margin-right: 1%;
-   margin-top: -25px;
-}
-
-.Reset{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: #ffffff;
-   font-size: 8vw;
-   border: none;
-   border-radius: 4px;
-   width: 96%;
-   margin-left: 2%;
-   margin-right: 2%;
-   height: 80px;
-   flex-grow: 1;
-}
-
+  
 .GoBackContainer {
-   display: flex;
-   justify-content: center;
-   align-items: flex-end;
-   position: fixed;
-   bottom: 10px;
-   width: 96%;
-   padding: 5px;
-   background-color: #9B37F2;
-   border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: fixed;
+    bottom: 10px;
+    width: 96%;
+    padding: 5px;
+    background-color: #9B37F2;
+    border-radius: 10px;
+    z-index: 1;
 }
-
+ 
 .GoBack {
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   color: #ffffff;
-   font-size: 7vw;
-   border: none;
-   border-radius: 12px;
-   width: 96%;
-   margin-left: 2%;
-   margin-right: 2%;
-   margin-bottom: 2%;
-   height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 7vw;
+    border: none;
+    border-radius: 12px;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    height: 150px;
 }
-
+ 
 .ButtonContainer {
-   width: 100%;
-   text-align: center;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   height: 100vh;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }

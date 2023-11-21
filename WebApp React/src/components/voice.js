@@ -1,10 +1,21 @@
-import '../style/voice2.css'
-import React, { useState } from 'react';
+import '../style/voice.css'
+import React, { useEffect, useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const Voice = ({ActivePage, onActivePage}) => {
 
     const [isActive, setIsActive] = useState(false); // Aggiungi questo stato
+
+    const [showModal, setShowModal] = useState(false); // Aggiungi questo stato
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowModal(true); // Mostra il modale dopo un ritardo
+        }); // Imposta un ritardo di 2000 millisecondi (2 secondi)
+    
+        return () => clearTimeout(timer); // Pulisce il timer quando il componente viene smontato
+    }, []); // L'array vuoto come secondo argomento significa che useEffect verrà eseguito solo una volta, quando il componente viene montato
+    
 
     const handleGoBack = () => {
         onActivePage('Home');
@@ -68,18 +79,39 @@ const Voice = ({ActivePage, onActivePage}) => {
         resetTranscript,
         browserSupportsSpeechRecognition
     } = useSpeechRecognition({commands}); 
-    
+
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
     }
     return(
         <>
+        {showModal && (
+            <body>
+            <div className="Modal">
+                <p className='PopUpText'>Comandi Abilitati:</p>
+                <ul>
+                    <li>Apri Home</li>
+                    <li>Apri Info</li>
+                    <li>Apri Maps</li>
+                    <li>Torna indietro</li>
+                </ul>
+                <p >valgono formule diverse per gli stessi comandi </p>
+                <button className="CloseContainer">
+                    <span className="Close" onClick={() => setShowModal(false)}>Chiudi</span>
+                </button>
+            </div>
+            </body>
+        )}
+        {
         <body>
-        <div className="information">
+        <div className="Information">
             <h1>Assistente Vocale</h1>
         </div>
-        <div>
+        <div className="Riga1">
             <p>Microfono: {listening ? 'on' : 'off'}</p>
+            <button className="CommandContainer">
+                <span className="Command" onClick={() => setShowModal(true)}>Comandi</span>
+            </button>
         </div>
         <div>
            <button className={isActive ? "StopContainer" : "StartContainer"} onClick={() => {
@@ -101,6 +133,7 @@ const Voice = ({ActivePage, onActivePage}) => {
             </button>
         </div>
         </body>
+        }
         </>
     );
 }
