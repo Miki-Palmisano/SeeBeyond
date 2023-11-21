@@ -25,74 +25,93 @@ p{
 }
 
 .Riga1{
-   display: flex;
-   flex-direction: row;
-   justify-content: start;
-   align-items: center;
-   margin-left: 2%;
-   margin-right: 2%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    margin-left: 2%;
+    margin-right: 2%;
+ }
+ 
+ .CommandContainer{
+    display: flex;
+    position: center;
+    justify-content: center; 
+    align-items: center;
+    width: 32%;
+    margin-left: 5%;
+    margin-right: 5%;
+    height: 40%;
+    padding: 5px;
+    background-color: #f0ec00;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    margin-top: 5%;
+ }
+ 
+ .Command{
+    position: center;
+    width: 80%;
+    height: 20%;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-size: 6vw;
+ }
+
+.PopUpContainer{
+    position: fixed; /* Posiziona il modale in modo fisso rispetto alla finestra del browser */
+    background-color: #ff0000;
+    border-radius: 10px;
+    width: 80%;
+    height: 80%;
+    padding: 5px;
+    display: flex;
+    justify-content:center;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2;
+    border: 2px solid #000000;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+ }
+
+.PopUpTitle{
+    font-size: 10vw;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    height: 90%;
 }
 
-.CommandContainer{
-   display: flex;
-   position: center;
-   justify-content: center; 
-   align-items: center;
-   width: 32%;
-   margin-left: 5%;
-   margin-right: 5%;
-   height: 40%;
-   padding: 5px;
-   background-color: #f0ec00;
-   border-radius: 10px;
-   margin-bottom: 5%;
-   margin-top: 5%;
-}
-
-.Command{
-   position: center;
-   width: 80%;
-   height: 20%;
-   padding: 5px;
-   border-radius: 10px;
-   text-align: center;
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin-left: 10%;
-   margin: 10%;
-   margin-top: 2%;
-   margin-bottom: 2%;
-   font-size: 6vw;
-}
-
-.BodyPopUp{
-   width: 20px;
-   height: 20px;
-   margin: 0 auto;
-   overflow: auto;
-}
-
-ul{
-      font-size: 8vw;
-      margin-bottom: 5%;
-      margin-top: 0%;
-      text-align: left;
-      display: flex;
-      justify-content: center;
-      align-items: left;
-      width: 90%;
-      margin-left: 5%;
-      margin-right: 5%;
-      flex-direction: column;
+.PopUpUl{
+    font-size: 8vw;
+    margin-bottom: 5%;
+    margin-top: 0%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    flex-direction: column;
 }
 
 .PopUpText{
-   font-size: 10vw;
-   margin-bottom: 5%;
-   margin-top: 5%;
-   margin-left: 5%;
-   margin-right: 5%;
+   font-size: 6vw;
+   margin-bottom: 2%;
+   margin-top: 2%;
    text-align: center;
    display: flex;
    justify-content: center;
@@ -100,28 +119,23 @@ ul{
    width: 90%;
    height: 90%;
 }
- 
-.Modal {
-   position: fixed; /* Posiziona il modale in modo fisso rispetto alla finestra del browser */
-   top: 50%; /* Centra il modale verticalmente */
-   left: 50%; /* Centra il modale orizzontalmente */
-   transform: translate(-50%, -50%); /* Centra il modale rispetto al suo punto di origine */
-   background-color: #ff0000;
-   border-radius: 10px;
-   width: 80%;
-   height: 80%;
-   padding: 5px;
-   display: flex;
-   justify-content:left;
-   flex-direction: column;
-   align-items: left;
-   z-index: 2;
-   border: 2px solid #000000;
-}
 
+.CheckboxContainer{
+    display: flex;
+    position: center;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: 5vw;
+}
+ 
 .CloseContainer{
    display: flex;
    position: center;
+   justify-content: center;
+   align-items: flex-end;
    width: 80%;
    margin-left: 10%;
    margin-right: 10%;
@@ -156,7 +170,7 @@ ul{
     padding: 5px;
     background-color: #56f000;
     border-radius: 10px;
-    display: inline-block;
+
     margin-left: 2%;
     margin-right: 2%;
     margin-top: -10px;

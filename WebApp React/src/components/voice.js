@@ -4,9 +4,13 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 const Voice = ({ActivePage, onActivePage}) => {
 
-    const [isActive, setIsActive] = useState(false); // Aggiungi questo stato
+    const [isActive, setIsActive] = useState(false);
 
-    const [showModal, setShowModal] = useState(false); // Aggiungi questo stato
+    const [showModal, setShowModal] = useState(true);
+
+    const [showPopUp, setShowPopUp] = useState(false);
+
+    const [isChecked, setIsChecked] = useState(false);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -85,36 +89,59 @@ const Voice = ({ActivePage, onActivePage}) => {
     }
     return(
         <>
-        {showModal && (
+        { 
+            !isChecked ? (showModal && (
+                <div className="PopUpContainer">
+                    <p className='PopUpTitle'>Comandi Abilitati:</p>
+                    <ul className="PopUpUl">
+                        <li className="PopUpText">Apri Home</li>
+                        <li className="PopUpText">Apri Info</li>
+                        <li className="PopUpText">Apri Maps</li>
+                        <li className="PopUpText">Torna indietro</li>
+                    </ul>
+                    <p className="PopUpText" margin-left="5%" margin-right="5%">valgono formule simili per gli stessi comandi </p>
+                    <div className="CheckboxContainer">
+                        <input type="checkbox" id="checkPopUp" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)}/>
+                        <label htmlFor="myCheckbox">Non mostrare di nuovo</label>
+                    </div>
+                    <button className="CloseContainer">
+                        <span className="Close" onClick={() => setShowModal(false)}>Chiudi</span>
+                    </button>
+                </div>
+            )) : null
+        }
+        {
             <body>
-            <div className="Modal">
-                <p className='PopUpText'>Comandi Abilitati:</p>
-                <ul>
-                    <li>Apri Home</li>
-                    <li>Apri Info</li>
-                    <li>Apri Maps</li>
-                    <li>Torna indietro</li>
-                </ul>
-                <p >valgono formule diverse per gli stessi comandi </p>
-                <button className="CloseContainer">
-                    <span className="Close" onClick={() => setShowModal(false)}>Chiudi</span>
+            <div className="Information">
+                <h1>Assistente Vocale</h1>
+            </div>
+            <div className="Riga1">
+                <p>Microfono: {listening ? 'on' : 'off'}</p>
+                <button className="CommandContainer">
+                    <span className="Command" onClick={() => {setShowPopUp(true);}}>Comandi</span>
                 </button>
             </div>
             </body>
+        }
+        {showPopUp && (
+                <div className="PopUpContainer" >
+                    <p className='PopUpTitle'>Comandi Abilitati:</p>
+                    <ul className="PopUpUl">
+                        <li className="PopUpText">Apri Home</li>
+                        <li className="PopUpText">Apri Info</li>
+                        <li className="PopUpText">Apri Maps</li>
+                        <li className="PopUpText">Torna indietro</li>
+                    </ul>
+                    <p className="PopUpText" margin-left="5%" margin-right="5%">valgono formule simili per gli stessi comandi </p>
+                    <button className="CloseContainer">
+                        <span className="Close" onClick={() => setShowPopUp(false)}>Chiudi</span>
+                    </button>
+                </div>
         )}
         {
         <body>
-        <div className="Information">
-            <h1>Assistente Vocale</h1>
-        </div>
-        <div className="Riga1">
-            <p>Microfono: {listening ? 'on' : 'off'}</p>
-            <button className="CommandContainer">
-                <span className="Command" onClick={() => setShowModal(true)}>Comandi</span>
-            </button>
-        </div>
-        <div>
-           <button className={isActive ? "StopContainer" : "StartContainer"} onClick={() => {
+            <div>
+                <button className={isActive ? "StopContainer" : "StartContainer"} onClick={() => {
                         setIsActive(!isActive); // Cambia lo stato quando il pulsante viene cliccato
                         if(!isActive){
                             resetTranscript();
@@ -123,49 +150,20 @@ const Voice = ({ActivePage, onActivePage}) => {
                         else SpeechRecognition.stopListening({continuous: false})
                     }
                 }>
-                <span className={isActive ? "Stop" : "Start"}>{isActive ? "STOP" : "AVVIA"}</span>
-            </button>
-            <p>{transcript}</p>
-        </div>
-        <div className="ButtonContainer">
-            <button className="GoBackContainer">
-                <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
-            </button>
-        </div>
-        </body>
+                    <span className={isActive ? "Stop" : "Start"}>{isActive ? "STOP" : "AVVIA"}</span>
+                </button>
+                <p>{transcript}</p>
+            </div>
+            <div className="ButtonContainer">
+                <button className="GoBackContainer">
+                    <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
+                </button>
+            </div>
+            </body>
         }
         </>
+
     );
 }
 
 export default Voice;
-
-/*
-return(
-        <>
-        <div className="information">
-            <h1>Assistente Vocale</h1>
-        </div>
-        <div>
-            <p>Microfono: {listening ? 'on' : 'off'}</p>
-        </div>
-        <div>
-            <button className="StartContainer"> 
-                <span className="Start" onClick={() => SpeechRecognition.startListening({continuous: true, language: 'it-IT'})}>AVVIA</span>
-            </button>
-            <button className="StopContainer"> 
-                <span className="Stop" onClick={() => SpeechRecognition.stopListening({continuous: false})}>STOP</span>
-            </button>
-            <button className="ResetContainer"> 
-                <span className="Reset" onClick={resetTranscript}>RESET</span>
-            </button>
-            <p>{transcript}</p>
-        </div>
-        <div className="ButtonContainer">
-            <button className="GoBackContainer">
-                <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
-            </button>
-        </div>
-        </>
-    );
-*/
