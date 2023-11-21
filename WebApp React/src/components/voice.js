@@ -90,7 +90,7 @@ const Voice = ({ActivePage, onActivePage}) => {
             </button>
             <p>{transcript}</p>
         </div>
-        <div className="buttonContainer">
+        <div className="ButtonContainer">
             <button className="GoBackContainer">
                 <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
             </button>
