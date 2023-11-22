@@ -1,6 +1,6 @@
-body {
-    max-width: 1200px;
-    margin: 0 auto;
+.VoiceBody{
+    margin-top: -2%;
+    background-color: #252B48;
 }
 
 .Information{
@@ -12,8 +12,9 @@ h1{
    font-size: 12vw;
    margin-top: 10px;
    margin-bottom: 5%;
+   color:#ffffff;
 }
- 
+
 p{
     font-size: 6vw;
     margin-bottom: 0%;
@@ -22,6 +23,7 @@ p{
     margin-right: 5%;
     text-align: left;
     justify-content: center;
+    color:#ffffff;
 }
 
 .Riga1{
@@ -31,6 +33,7 @@ p{
     align-items: center;
     margin-left: 2%;
     margin-right: 2%;
+    color:#252B48;
  }
  
  .CommandContainer{
@@ -43,7 +46,7 @@ p{
     margin-right: 5%;
     height: 40%;
     padding: 5px;
-    background-color: #f0ec00;
+    background-color: #C45B3D;
     border-radius: 10px;
     margin-bottom: 5%;
     margin-top: 5%;
@@ -64,14 +67,15 @@ p{
     margin-top: 2%;
     margin-bottom: 2%;
     font-size: 6vw;
+    color: #ffffff;
  }
 
 .PopUpContainer{
     position: fixed; /* Posiziona il modale in modo fisso rispetto alla finestra del browser */
-    background-color: #ff0000;
+    background-color: #C45B3D;
     border-radius: 10px;
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 90%;
     padding: 5px;
     display: flex;
     justify-content:center;
@@ -85,7 +89,7 @@ p{
  }
 
 .PopUpTitle{
-    font-size: 10vw;
+    font-size: 9vw;
     margin-bottom: 2%;
     margin-top: 2%;
     text-align: center;
@@ -94,6 +98,7 @@ p{
     align-items: center;
     width: 90%;
     height: 90%;
+    color:#ffffff;
 }
 
 .PopUpUl{
@@ -104,8 +109,21 @@ p{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 80%;
+    width: 90%;
     flex-direction: column;
+}
+
+.PopUpLi{
+    font-size: 7vw;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    text-align: right;
+    display: flex;
+    justify-content: left;
+    width: 90%;
+    height: 90%;
+    color:#ffffff;
+    
 }
 
 .PopUpText{
@@ -114,21 +132,9 @@ p{
    margin-top: 2%;
    text-align: center;
    display: flex;
-   justify-content: center;
-   align-items: center;
    width: 90%;
    height: 90%;
-}
-
-.CheckboxContainer{
-    display: flex;
-    position: center;
-    justify-content: center;
-    align-items: center;
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 5vw;
+   color:#ffffff;
 }
  
 .CloseContainer{
@@ -136,12 +142,12 @@ p{
    position: center;
    justify-content: center;
    align-items: flex-end;
-   width: 80%;
+   width: 90%;
    margin-left: 10%;
    margin-right: 10%;
    height: 40%;
    padding: 5px;
-   background-color: #00f0e0;
+   background-color: #F7E987;
    border-radius: 10px;
    margin-bottom: 5%;
    margin-top: 5%;
@@ -149,16 +155,20 @@ p{
 
 .Close {
    position: center;
-   width: 96%;
+   position: center;
+   justify-content: center;
+   align-items: flex-end;
+   width: 100%;
+   height: 100%;
    padding: 5px;
-   background-color: #00f0e0;
    border-radius: 10px;
-   display: inline-block;
+   display: flex;
    margin-left: 2%;
    margin-right: 2%;
    margin-top: 2%;
    margin-bottom: 2%;
-   font-size: 6vw;
+   font-size: 10vw;
+   color: #252B48;
 }
 
 .StartContainer{
@@ -168,9 +178,8 @@ p{
     position:left;
     width: 96%;
     padding: 5px;
-    background-color: #56f000;
+    background-color: #5B9A8B;
     border-radius: 10px;
-
     margin-left: 2%;
     margin-right: 2%;
     margin-top: -10px;
@@ -189,6 +198,7 @@ p{
     margin-right: 2%;
     height: 80px;
     flex-grow: 1;
+    color:#ffffff;
 }
  
 .StopContainer{
@@ -198,7 +208,7 @@ p{
     position:center;
     width: 96%;
     padding: 5px;
-    background-color: #ff0000;
+    background-color: #8B2635;
     border-radius: 10px;
     display: inline-block;
     margin-left: 2%;
@@ -219,6 +229,7 @@ p{
     margin-right: 2%;
     height: 80px;
     flex-grow: 1;
+    color:#ffffff;
 }
   
 .GoBackContainer {
@@ -229,7 +240,7 @@ p{
     bottom: 10px;
     width: 96%;
     padding: 5px;
-    background-color: #9B37F2;
+    background-color: #F7E987;
     border-radius: 10px;
     z-index: 1;
 }
@@ -239,7 +250,7 @@ p{
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 7vw;
+    font-size: 10vw;
     border: none;
     border-radius: 12px;
     width: 96%;
@@ -247,6 +258,7 @@ p{
     margin-right: 2%;
     margin-bottom: 2%;
     height: 150px;
+    color:#252B48;
 }
  
 .ButtonContainer {

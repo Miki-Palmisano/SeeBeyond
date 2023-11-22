@@ -14,7 +14,7 @@ function Info ({ActivePage, onActivePage}){
                 SeeBeyond &egrave; un progetto, ideato da un gruppo di studenti del politecnico di Bari, rivolto alle persone con acuit&agrave; visiva che cercano soluzioni innovative ed efficaci per orientarsi in qualsiasi tipo di ambiente.
             </p>
         </div>
-        <div>
+        <div className="ButtonContainer">
             <button className="GoBackContainer">
                 <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
             </button>

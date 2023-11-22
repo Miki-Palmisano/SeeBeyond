@@ -4,26 +4,14 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 const Voice = ({ActivePage, onActivePage}) => {
 
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, setIsActive] = useState(false); //ceck bottone avvia/stop assistente
 
-    const [showModal, setShowModal] = useState(true);
-
-    const [showPopUp, setShowPopUp] = useState(false);
-
-    const [isChecked, setIsChecked] = useState(false);
-
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            setShowModal(true); // Mostra il modale dopo un ritardo
-        }); // Imposta un ritardo di 2000 millisecondi (2 secondi)
-    
-        return () => clearTimeout(timer); // Pulisce il timer quando il componente viene smontato
-    }, []); // L'array vuoto come secondo argomento significa che useEffect verrà eseguito solo una volta, quando il componente viene montato
-    
+    const [showPopUp, setShowPopUp] = useState(false);//ceck popup comandi
 
     const handleGoBack = () => {
         onActivePage('Home');
     }
+
 
     const commands = [
         {
@@ -74,6 +62,27 @@ const Voice = ({ActivePage, onActivePage}) => {
                 onActivePage('Info');
                 SpeechRecognition.stopListening({continuous: false});
             }
+        },
+        {
+            command: 'Lista Comandi',
+            callback:() => {
+                setShowPopUp(true);
+                setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+            }
+        },
+        {
+            command: 'che ore sono',
+            callback:() => {
+                let date = new Date();
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let time = hours + ":" + minutes;
+                var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
+                setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utterance);
+            }
         }
     ]
 
@@ -89,29 +98,8 @@ const Voice = ({ActivePage, onActivePage}) => {
     }
     return(
         <>
-        { 
-            !isChecked ? (showModal && (
-                <div className="PopUpContainer">
-                    <p className='PopUpTitle'>Comandi Abilitati:</p>
-                    <ul className="PopUpUl">
-                        <li className="PopUpText">Apri Home</li>
-                        <li className="PopUpText">Apri Info</li>
-                        <li className="PopUpText">Apri Maps</li>
-                        <li className="PopUpText">Torna indietro</li>
-                    </ul>
-                    <p className="PopUpText" margin-left="5%" margin-right="5%">valgono formule simili per gli stessi comandi </p>
-                    <div className="CheckboxContainer">
-                        <input type="checkbox" id="checkPopUp" checked={isChecked} onChange={(e) => setIsChecked(e.target.checked)}/>
-                        <label htmlFor="myCheckbox">Non mostrare di nuovo</label>
-                    </div>
-                    <button className="CloseContainer">
-                        <span className="Close" onClick={() => setShowModal(false)}>Chiudi</span>
-                    </button>
-                </div>
-            )) : null
-        }
         {
-            <body>
+            <div className="VoiceBody">
             <div className="Information">
                 <h1>Assistente Vocale</h1>
             </div>
@@ -121,25 +109,6 @@ const Voice = ({ActivePage, onActivePage}) => {
                     <span className="Command" onClick={() => {setShowPopUp(true);}}>Comandi</span>
                 </button>
             </div>
-            </body>
-        }
-        {showPopUp && (
-                <div className="PopUpContainer" >
-                    <p className='PopUpTitle'>Comandi Abilitati:</p>
-                    <ul className="PopUpUl">
-                        <li className="PopUpText">Apri Home</li>
-                        <li className="PopUpText">Apri Info</li>
-                        <li className="PopUpText">Apri Maps</li>
-                        <li className="PopUpText">Torna indietro</li>
-                    </ul>
-                    <p className="PopUpText" margin-left="5%" margin-right="5%">valgono formule simili per gli stessi comandi </p>
-                    <button className="CloseContainer">
-                        <span className="Close" onClick={() => setShowPopUp(false)}>Chiudi</span>
-                    </button>
-                </div>
-        )}
-        {
-        <body>
             <div>
                 <button className={isActive ? "StopContainer" : "StartContainer"} onClick={() => {
                         setIsActive(!isActive); // Cambia lo stato quando il pulsante viene cliccato
@@ -159,8 +128,24 @@ const Voice = ({ActivePage, onActivePage}) => {
                     <span className="GoBack" onClick={() => handleGoBack()}>Torna Indietro</span>
                 </button>
             </div>
-            </body>
+            </div>
         }
+        {showPopUp && (
+                <div className="PopUpContainer" >
+                    <p className='PopUpTitle'>Comandi Abilitati:</p>
+                    <ul className="PopUpUl">
+                        <li className="PopUpLi">Apri Home</li>
+                        <li className="PopUpLi">Apri Info</li>
+                        <li className="PopUpLi">Apri Maps</li>
+                        <li className="PopUpLi">Torna indietro</li>
+                        <li className="PopUpLi">Lista comandi</li>
+                    </ul>
+                    <p className="PopUpText" margin-left="5%" margin-right="5%">valgono formule simili per gli stessi comandi </p>
+                    <button className="CloseContainer">
+                        <span className="Close" onClick={() => setShowPopUp(false)}>Chiudi</span>
+                    </button>
+                </div>
+        )}
         </>
 
     );
