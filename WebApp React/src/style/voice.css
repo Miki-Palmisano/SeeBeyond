@@ -1,6 +1,7 @@
 .VoiceBody{
     margin-top: -2%;
     background-color: #252B48;
+    height: 100vh;
 }
 
 .Information{
@@ -41,6 +42,7 @@ p{
     position: center;
     justify-content: center; 
     align-items: center;
+    border: none;
     width: 32%;
     margin-left: 5%;
     margin-right: 5%;
@@ -74,6 +76,7 @@ p{
     position: fixed; /* Posiziona il modale in modo fisso rispetto alla finestra del browser */
     background-color: #C45B3D;
     border-radius: 10px;
+    border: none;
     width: 90%;
     height: 90%;
     padding: 5px;
@@ -142,6 +145,7 @@ p{
    position: center;
    justify-content: center;
    align-items: flex-end;
+   border: none;
    width: 90%;
    margin-left: 10%;
    margin-right: 10%;
@@ -178,6 +182,7 @@ p{
     position:left;
     width: 96%;
     padding: 5px;
+    border: none;
     background-color: #5B9A8B;
     border-radius: 10px;
     margin-left: 2%;
@@ -203,6 +208,7 @@ p{
  
 .StopContainer{
     display: flex;
+    border: none;
     justify-content: center;
     align-items: flex-end;
     position:center;
@@ -237,6 +243,7 @@ p{
     justify-content: center;
     align-items: flex-end;
     position: fixed;
+    border: none;
     bottom: 10px;
     width: 96%;
     padding: 5px;

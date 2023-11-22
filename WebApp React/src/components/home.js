@@ -2,6 +2,8 @@ import React, { Component , useState } from 'react';
 
 import Button from '../components/button';
 
+import '../style/home.css';
+
 import {GetCookie, SetCookie} from '../functions/cookie.js'; //se ne importo solo una mi da errore
 
 function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){

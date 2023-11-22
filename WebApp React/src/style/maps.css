@@ -1,17 +1,17 @@
 .MapsBody{
-   margin-top: -2%;
    background-color: #3C486B;
-   width:1000px;
+   height: 100vh;
 }
 
 .information{
-    text-align: center;
+   text-align: center;
    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1{
    font-size: 12vw;
    margin-top: -10px;
+   color:#F0F0F0;
 }
 
 .MapsContainer {
@@ -61,7 +61,6 @@ h1{
  }
 
 .GoBackMaps{
-
    display: flex;
    align-items: center;
    justify-content: center;
