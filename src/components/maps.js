@@ -10,15 +10,17 @@ function Maps({ActivePage, onActivePage}){
     return(
         <>  
         <div className="MapsBody">
-            <div className="information">
-                <h1>Maps</h1>
+            <div className="MapsInformation">
+                <h1 className="MapsH1">MAPS</h1>
             </div>
             <button className="MapsContainer">
-                <span className="MapsButton" onClick={() => window.open("https://maps.google.com")}>Avvia Maps</span>
+                <h1 className="MapsButton" onClick={() => window.open("https://maps.google.com")}>APRI MAPS</h1>
             </button>
-            <button className="GoBackContainerMaps">
-                <span className="GoBackMaps" onClick={() => handleGoBack()}>Torna Indietro</span>
-            </button>
+            <div className="MapsButtonContainer">
+                <button className="MapsGoBackContainer">
+                    <h1 className="MapsGoBack" onClick={() => handleGoBack()}>TORNA INDIETRO</h1>
+                </button>
+            </div>
         </div>
         </>
     );
