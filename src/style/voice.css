@@ -4,20 +4,20 @@
     height: 100vh;
 }
 
-.Information{
+.VoiceInformation{
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
- }
+}
   
-h1{
+.VoiceH1{
    font-size: 12vw;
    margin-top: 10px;
    margin-bottom: 5%;
    color:#ffffff;
 }
 
-p{
-    font-size: 6vw;
+.VoiceP{
+    font-size: 12vw;
     margin-bottom: 0%;
     margin-top: 0%;
     margin-left: 5%;
@@ -27,7 +27,7 @@ p{
     color:#ffffff;
 }
 
-.Riga1{
+.VoiceRiga1{
     display: flex;
     flex-direction: row;
     justify-content: start;
@@ -93,8 +93,6 @@ p{
 
 .PopUpTitle{
     font-size: 9vw;
-    margin-bottom: 2%;
-    margin-top: 2%;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -187,7 +185,7 @@ p{
     border-radius: 10px;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top: -10px;
+    margin-top: -5px;
 }
  
 .Start{
@@ -195,13 +193,13 @@ p{
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 8vw;
+    font-size: 12vw;
     border: none;
-    border-radius: 4px;
     width: 96%;
+    margin-top: 8%;
     margin-left: 2%;
     margin-right: 2%;
-    height: 80px;
+    height: 75px;
     flex-grow: 1;
     color:#ffffff;
 }
@@ -219,7 +217,7 @@ p{
     display: inline-block;
     margin-left: 2%;
     margin-right: 2%;
-    margin-top: -10px;
+    margin-top: -5px;
 }
  
 .Stop{
@@ -227,21 +225,19 @@ p{
     align-items: center;
     justify-content: center;
     color: #ffffff;
-    font-size: 8vw;
+    font-size: 12vw;
     border: none;
-    border-radius: 4px;
     width: 96%;
+    margin-top: 8%;
     margin-left: 2%;
     margin-right: 2%;
-    height: 80px;
+    height: 75px;
     flex-grow: 1;
     color:#ffffff;
 }
   
-.GoBackContainer {
+.VoiceGoBackContainer {
     display: flex;
-    justify-content: center;
-    align-items: flex-end;
     position: fixed;
     border: none;
     bottom: 10px;
@@ -252,14 +248,12 @@ p{
     z-index: 1;
 }
  
-.GoBack {
+.VoiceGoBack {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #ffffff;
-    font-size: 10vw;
+    font-size: 12vw;
     border: none;
-    border-radius: 12px;
     width: 96%;
     margin-left: 2%;
     margin-right: 2%;
@@ -268,11 +262,10 @@ p{
     color:#252B48;
 }
  
-.ButtonContainer {
+.VoiceButtonContainer {
     width: 100%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
 }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../style/button.css';
 
-function Button({buttonState, buttonName, buttonImg, onSwitchButtonState, buttonID, onSwitchPage}){ //onSetCookie
+function Button({buttonState, buttonName, buttonImg, onSwitchButtonState, buttonID, onSwitchPage}){
 
         const buttonIsActive = buttonState ? "active" : "inactive"; //assegna le stringhe rispettivamente a true e false valore della props
         const ButtonClassName = "button " + buttonName + " " + buttonIsActive; //compone la stringa per la classe CSS del bottone
