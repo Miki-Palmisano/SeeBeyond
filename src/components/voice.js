@@ -143,7 +143,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                     }>
                         <h1 className={isActive ? "Stop" : "Start"}>{isActive ? "STOP" : "AVVIA"}</h1>
                     </button>
-                    <p>{transcript}</p>
+                    <p className='VoiceP'>{transcript}</p>
                 </div>
                 <div className="VoiceButtonContainer">
                     <button className="VoiceGoBackContainer">

@@ -11,7 +11,7 @@
 
 .MapsH1{
    font-size: 12vw;
-   margin-top: 0px;
+   margin-top: 12px;
    color:#F0F0F0;
 }
 
@@ -47,7 +47,7 @@
    display: flex;
    position: fixed;
    border: none;
-   bottom: 10px;
+   bottom: 12px; /*2px in piu di voice*/
    width: 96%;
    padding: 5px;
    background-color: #F9D949;
