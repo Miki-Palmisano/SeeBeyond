@@ -165,7 +165,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                     </ul>
                     <p className="PopUpText" margin-left="5%" margin-right="5%">valgono alcune formule simili per gli stessi comandi </p>
                     <button className="CloseContainer">
-                        <span className="Close" onClick={() => setShowPopUp(false)}>Chiudi</span>
+                        <h1 className="Close" onClick={() => setShowPopUp(false)}>CHIUDI</h1>
                     </button>
                 </div>
         )}
