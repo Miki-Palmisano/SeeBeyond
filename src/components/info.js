@@ -10,7 +10,7 @@ function Info ({ActivePage, onActivePage}){
         <>
         <div className="InfoBody">
             <div className="information">
-                <h1>Info Pages</h1>
+                <h1>Info Page</h1>
                 <p>
                     SeeBeyond &egrave; un progetto, ideato da un gruppo di studenti del politecnico di Bari, rivolto alle persone con acuit&agrave; visiva che cercano soluzioni innovative ed efficaci per orientarsi in qualsiasi tipo di ambiente.
                 </p>
