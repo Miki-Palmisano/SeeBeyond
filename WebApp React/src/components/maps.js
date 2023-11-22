@@ -5,6 +5,7 @@ function Maps({ActivePage, onActivePage}){
     const handleGoBack = () => {
         onActivePage('Home');
     }
+    
 
     return(
         <>  
