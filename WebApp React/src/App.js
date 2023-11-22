@@ -9,14 +9,6 @@
 
 //PROPRIETà DI SEEBEYOND, TUTTI I DIRITTI E USI RISERVATI
 
-
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-
 //import librerie React
 import React, { Component , useState } from 'react';
 
@@ -36,23 +28,6 @@ import OCRImage from './images/OCR.png';
 import MapsImage from './images/Maps.png';
 import VoiceImage from './images/Comando Vocale.png';
 import OnOffImage from './images/OnOff.png';
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyAux78sUVoNRz7WCmEMZTdhTtAQUzKP19M",
-  authDomain: "seebeyond-b370a.firebaseapp.com",
-  projectId: "seebeyond-b370a",
-  storageBucket: "seebeyond-b370a.appspot.com",
-  messagingSenderId: "658711291124",
-  appId: "1:658711291124:web:38ffd4c3eae0ff69bfeaa1",
-  measurementId: "G-Y5CQFT8118"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
 
 function App(){
   
