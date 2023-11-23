@@ -103,12 +103,13 @@
 
 .PopUpUl{
     margin-bottom: 5%;
-    margin-top: 0%;
+    margin-top: -5%;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 90%;
+    height: 56%;
     flex-direction: column;
 }
 
@@ -120,7 +121,7 @@
     display: flex;
     justify-content: left;
     width: 90%;
-    height: 90%;
+    height: 50%;
     color:#ffffff;
     
 }
