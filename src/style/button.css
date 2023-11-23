@@ -55,7 +55,7 @@
 }
 
 .inactive {
-    background-color: gray;
+    background-color: #D6CECC;
     filter: invert(100%);
 }
 

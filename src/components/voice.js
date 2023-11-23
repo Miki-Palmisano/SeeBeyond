@@ -105,7 +105,33 @@ const Voice = ({ActivePage, onActivePage}) => {
                 SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utterance);
             }
-        }
+        },
+        {
+            command: 'Che ora è',
+            callback:() => {
+                let date = new Date();
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
+                let time = hours + ":" + minutes;
+                var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
+                setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utterance);
+            }
+        },
+        {
+            command: 'Che giorno è oggi',
+            callback:() => {
+                let date = new Date();
+                let day = date.getDate();
+                let month = date.getMonth();
+                let year = date.getFullYear();
+                var utterance = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
+                setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utterance);
+            }
+        }
     ]
 
     const {
