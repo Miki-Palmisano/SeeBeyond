@@ -16,35 +16,35 @@
 .top-left {
     top: 0;
     left: 0;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 40%, 40% 100%, 0% 100%);
+    clip-path: polygon(1% 1%, 99% 1%, 99% 39%, 39% 99%, 1% 99%);
     background-color: #F1C93B;
 }
 
 .top-right {
     top: 0;
     right: 0;
-    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 60% 100%, 0 40%);
+    clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 61% 99%, 1% 39%);
     background-color: chartreuse;
 }
 
 .bottom-left {
     bottom: 0;
     left: 0;
-    clip-path: polygon(0% 0%, 40% 0%, 100% 60%, 100% 100%, 0% 100%);
+    clip-path: polygon(1% 1%, 39% 1%, 99% 61%, 99% 99%, 1% 99%);
     background-color: #F45050;
 }
 
 .bottom-right {
     bottom: 0;
     right: 0;
-    clip-path: polygon(60% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 60%);
+    clip-path: polygon(61% 1%, 99% 1%, 99% 99%, 1% 99%, 1% 61%);
     background-color: #445069;
 }
 
 .center {
     top: 20.5%;
     left: 20.5%;
-    background-color:#9B37F2;
+    background-color:#8A2BE2;
     clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
     width: 59%;
     height: 59%;
