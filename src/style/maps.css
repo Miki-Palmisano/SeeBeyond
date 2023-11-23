@@ -1,6 +1,6 @@
 .MapsBody{
    margin-top: -2%;
-   background-color: #3C486B;
+   background-color: #4F091D;
    height: 100vh;
 }
 
@@ -25,7 +25,7 @@
    left: 50%;
    transform: translate(-50%, -50%);
    padding: 10px 20px;
-   background-color: #F45050;
+   background-color: #97BFB4;
    border-radius: 10px;
    border: none;
  }
@@ -40,7 +40,7 @@
    margin-left: 2%;
    margin-right: 2%;
    height: 75ps;
-   color: #F0F0F0;
+   color: #4F091D;
 }
 
 .MapsGoBackContainer{
@@ -50,7 +50,7 @@
    bottom: 12px; /*2px in piu di voice*/
    width: 96%;
    padding: 5px;
-   background-color: #F9D949;
+   background-color: #F5EEDC;
    border-radius: 10px;
 }
  
@@ -66,7 +66,7 @@
    margin-right: 2%;
    margin-bottom: 2%;
    height: 150px;
-   color: #3C486B;
+   color: #4F091D;
 }
 
 .MapsButtonContainer {

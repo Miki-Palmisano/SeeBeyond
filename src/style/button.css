@@ -17,7 +17,7 @@
     top: 0;
     left: 0;
     clip-path: polygon(1% 1%, 99% 1%, 99% 39%, 39% 99%, 1% 99%);
-    background-color: #F1C93B;
+    background-color: #EF9A53;
 }
 
 .top-right {
@@ -31,7 +31,7 @@
     bottom: 0;
     left: 0;
     clip-path: polygon(1% 1%, 39% 1%, 99% 61%, 99% 99%, 1% 99%);
-    background-color: #F45050;
+    background-color: #DD4A48;
 }
 
 .bottom-right {
