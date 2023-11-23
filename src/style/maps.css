@@ -25,7 +25,7 @@
    left: 50%;
    transform: translate(-50%, -50%);
    padding: 10px 20px;
-   background-color: #F0F0F0;
+   background-color: #F45050;
    border-radius: 10px;
    border: none;
  }
@@ -40,7 +40,7 @@
    margin-left: 2%;
    margin-right: 2%;
    height: 75ps;
-   color: #3C486B;
+   color: #F0F0F0;
 }
 
 .MapsGoBackContainer{
@@ -52,7 +52,8 @@
    padding: 5px;
    background-color: #F9D949;
    border-radius: 10px;
- }
+}
+ 
 
 .MapsGoBack{
    display: flex;
