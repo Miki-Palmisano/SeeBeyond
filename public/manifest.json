@@ -1,22 +1,21 @@
 {
   "short_name": "See Beyond",
-  "name": "See Beyond",
-  "icons": [
-    {
-      "src": "logoProva.png",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logoProva.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logoProva.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
+  "name": "See Beyond - Assistenza Visiva",
+  "icons": {
+    "16": "logoProva.ico",
+    "48": "logoProva.ico",
+    "128": "logoProva.ico"
+  },
+  "browser_action": {
+    "default_icon": "logoProva.ico",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "web_accessible_resources": [
+    "logoProva.png"
   ],
   "start_url": ".",
   "display": "standalone",
