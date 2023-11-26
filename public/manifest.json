@@ -1,13 +1,13 @@
 {
   "short_name": "See Beyond",
-  "name": "See Beyond - Assistenza Visiva",
+  "name": "See Beyond - Guarda Oltre",
   "icons": {
-    "16": "logoProva.ico",
-    "48": "logoProva.ico",
-    "128": "logoProva.ico"
+    "16": "favicon.ico",
+    "48": "favicon.ico",
+    "128": "favicon.ico"
   },
   "browser_action": {
-    "default_icon": "logoProva.ico",
+    "default_icon": "favicon.ico",
     "default_popup": "popup.html"
   },
   "background": {
@@ -15,7 +15,7 @@
     "persistent": false
   },
   "web_accessible_resources": [
-    "logoProva.png"
+    "logo512.png"
   ],
   "start_url": ".",
   "display": "standalone",
