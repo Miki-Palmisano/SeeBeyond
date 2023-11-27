@@ -25,6 +25,16 @@
     margin-right: 2%;
     color:#252B48;
 }
+
+.VoiceP{
+    font-size: 8vw;
+    margin: 0%;
+    text-align: left;
+    justify-content: center;
+    color:#ffffff;
+    margin-left: 1%;
+    margin-right: 1%;
+}
  
 .CommandContainer{
     display: flex;

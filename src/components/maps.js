@@ -13,34 +13,13 @@ function Maps({ActivePage, onActivePage}){
 
     const [stringDestinazione, setStringDestinazione] = useState("INDIRIZZO RILEVATO");
 
-    const commands = [
-        {
-            command: 'Via *',
-            callback:() =>  {
-                console.log(transcript);
-                setStringDestinazione(transcript);
-                SpeechRecognition.stopListening({continuous: false});
-                resetTranscript();
-            }
-        },
-        {
-            command: 'Viale *',
-            callback:() =>  {
-                console.log(transcript);
-                setStringDestinazione(transcript);
-                SpeechRecognition.stopListening({continuous: false});
-                console.log(stringDestinazione);
-                resetTranscript();
-            }
-        }
-    ];
+    
 
     const {
         transcript,
         listening,
         resetTranscript,
-        browserSupportsSpeechRecognition
-    } = useSpeechRecognition({commands}); 
+    } = useSpeechRecognition({}); 
 
     return(
         <>  
@@ -48,16 +27,26 @@ function Maps({ActivePage, onActivePage}){
             <div className="MapsInformation">
                 <h1 className="MapsH1">MAPS</h1>
             </div>
-            <button className="DestinazioneContainer">
-                <h1 className="DestinazioneButton" onClick={() => {                                 
-                    resetTranscript();
-                    SpeechRecognition.startListening({continuous: true, language: 'it-IT'}); }}>
-                        DESTINAZIONE
-                </h1>
+            <button className={isActive ? "FineDestinazioneContainer" : "DestinazioneContainer"} onClick={() => {
+                    setIsActive(!isActive); // Cambia lo stato quando il pulsante viene cliccato
+                    if(!isActive){
+                        resetTranscript();
+                        SpeechRecognition.startListening({continuous: true, language: 'it-IT'});
+                    }
+                    else {
+                        setStringDestinazione(transcript);
+                        SpeechRecognition.stopListening();
+                    }}}>
+                <h1 className="DestinazioneButton">DESTINAZIONE</h1>
             </button>
             <input className="DestinazioneText" type="text" value={stringDestinazione} onChange={() => {}}/>
             <button className="MapsContainer">
-                <h1 className="MapsButton" onClick={() => window.open("https://maps.google.com")}>AVVIA MAPS</h1>
+                <h1 className="MapsButton" onClick={() =>  {
+                    const destination = encodeURIComponent(stringDestinazione);
+                    const url = `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${destination}`;
+                    window.open(url);}}>
+                        AVVIA MAPS
+                </h1>
             </button>
             <div className="MapsButtonContainer">
                 <button className="MapsGoBackContainer">

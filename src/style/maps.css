@@ -58,6 +58,22 @@
    border: none;
 }
 
+
+.FineDestinazioneContainer{
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   position: absolute;
+   width: 96%;
+   top: 20%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: 10px 20px;
+   background-color: #CCB966;
+   border-radius: 10px;
+   border: none;
+}
+
 .DestinazioneButton{
    display: flex;
    align-items: center;
