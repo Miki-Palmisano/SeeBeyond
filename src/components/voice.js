@@ -1,5 +1,5 @@
 import '../style/voice.css'
-import React, { useEffect, useState } from 'react';
+import React, {useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const Voice = ({ActivePage, onActivePage}) => {

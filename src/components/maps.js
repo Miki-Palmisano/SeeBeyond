@@ -1,11 +1,46 @@
 import '../style/maps.css'
+import React, {useState} from 'react';
+import Map from '../functions/mapsCall.js'
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function Maps({ActivePage, onActivePage}){
 
     const handleGoBack = () => {
         onActivePage('Home');
     }
-    
+
+    const [isActive, setIsActive] = useState(false); //ceck testo label
+
+    const [stringDestinazione, setStringDestinazione] = useState("INDIRIZZO RILEVATO");
+
+    const commands = [
+        {
+            command: 'Via *',
+            callback:() =>  {
+                console.log(transcript);
+                setStringDestinazione(transcript);
+                SpeechRecognition.stopListening({continuous: false});
+                resetTranscript();
+            }
+        },
+        {
+            command: 'Viale *',
+            callback:() =>  {
+                console.log(transcript);
+                setStringDestinazione(transcript);
+                SpeechRecognition.stopListening({continuous: false});
+                console.log(stringDestinazione);
+                resetTranscript();
+            }
+        }
+    ];
+
+    const {
+        transcript,
+        listening,
+        resetTranscript,
+        browserSupportsSpeechRecognition
+    } = useSpeechRecognition({commands}); 
 
     return(
         <>  
@@ -13,8 +48,16 @@ function Maps({ActivePage, onActivePage}){
             <div className="MapsInformation">
                 <h1 className="MapsH1">MAPS</h1>
             </div>
+            <button className="DestinazioneContainer">
+                <h1 className="DestinazioneButton" onClick={() => {                                 
+                    resetTranscript();
+                    SpeechRecognition.startListening({continuous: true, language: 'it-IT'}); }}>
+                        DESTINAZIONE
+                </h1>
+            </button>
+            <input className="DestinazioneText" type="text" value={stringDestinazione} onChange={() => {}}/>
             <button className="MapsContainer">
-                <h1 className="MapsButton" onClick={() => window.open("https://maps.google.com")}>APRI MAPS</h1>
+                <h1 className="MapsButton" onClick={() => window.open("https://maps.google.com")}>AVVIA MAPS</h1>
             </button>
             <div className="MapsButtonContainer">
                 <button className="MapsGoBackContainer">
@@ -27,8 +70,3 @@ function Maps({ActivePage, onActivePage}){
 }
 
 export default Maps;
-
-/*
-<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d380100.9143671685!2d12.496365500000003!3d41.90278349999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sit!2sit!4v1700561337930!5m2!1sit!2sit" width="96%" height="5%" margin-left="5%" margin-right="5%"  loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>    
-
-*/

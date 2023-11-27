@@ -1,7 +1,7 @@
 .MapsBody{
-   margin-top: -2%;
+   margin-top: -3%;
    background-color: #4F091D;
-   height: 100vh;
+   height: 101vh;
 }
 
 .MapsInformation{
@@ -21,7 +21,7 @@
    align-items: flex-end;
    position: absolute;
    width: 96%;
-   top: 20%;
+   top: 60%;
    left: 50%;
    transform: translate(-50%, -50%);
    padding: 10px 20px;
@@ -43,6 +43,49 @@
    color: #4F091D;
 }
 
+.DestinazioneContainer{
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   position: absolute;
+   width: 96%;
+   top: 20%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: 10px 20px;
+   background-color: #F0F0F0;
+   border-radius: 10px;
+   border: none;
+}
+
+.DestinazioneButton{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 12vw;
+   width: 96%;
+   margin-top: 8%;
+   margin-left: 2%;
+   margin-right: 2%;
+   height: 75ps;
+}
+
+.DestinazioneText{
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   position: absolute;
+   width: 95%;
+   height: 10%;
+   top: 33%;
+   margin: 2%;
+   background-color: #000000;
+   border-radius: 10px;
+   border: 5px #F0F0F0;
+   font-size: 6vw;
+   color: #F0F0F0;
+}
+
 .MapsGoBackContainer{
    display: flex;
    position: fixed;
@@ -53,7 +96,6 @@
    background-color: #F5EEDC;
    border-radius: 10px;
 }
- 
 
 .MapsGoBack{
    display: flex;
