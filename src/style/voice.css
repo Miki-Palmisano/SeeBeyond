@@ -23,7 +23,10 @@
     align-items: center;
     margin-left: 2%;
     margin-right: 2%;
+    margin-top: -10%;
+    margin-bottom: -5%;
     color:#252B48;
+    height: 25%;
 }
 
 .VoiceP{
