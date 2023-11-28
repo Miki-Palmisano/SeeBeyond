@@ -38,7 +38,7 @@ function Maps({ActivePage, onActivePage}){
                     }}}>
                 <h1 className="DestinazioneButton">DESTINAZIONE</h1>
             </button>
-            <input className="DestinazioneText" type="text" value={stringDestinazione} onChange={() => {}}/>
+            <input className="DestinazioneText" type="text" value={stringDestinazione} readOnly onChange={() => {}}/>
             <button className="MapsContainer">
                 <h1 className="MapsButton" onClick={() =>  {
                     const destination = encodeURIComponent(stringDestinazione);

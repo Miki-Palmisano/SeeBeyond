@@ -152,9 +152,9 @@ const Voice = ({ActivePage, onActivePage}) => {
                     <h1 className="VoiceH1">ASSISTENTE VOCALE</h1>
                 </div>
                 <div className="VoiceRiga1">
-                    <p className="VoiceP">Microfono: {listening ? 'on' : 'off'}</p>
+                    <p className="VoiceP">MIC: {listening ? 'ON' : 'OFF'}</p>
                     <button className="CommandContainer">
-                        <span className="Command" onClick={() => {setShowPopUp(true);}}>COMANDI</span>
+                        <h1 className="Command" onClick={() => {setShowPopUp(true);}}>COMANDI</h1>
                     </button>
                 </div>
                 <div>
