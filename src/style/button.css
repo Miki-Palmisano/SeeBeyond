@@ -2,9 +2,7 @@
     width: 50%;
     height: 50%;
     position: absolute;
-    text-align: center;
     font-size: 5vw;
-    line-height: 50%;
     border-width: 1px;
     border-radius: 8px;
     border-color: #000000;
@@ -16,28 +14,28 @@
 .top-left {
     top: 0;
     left: 0;
-    clip-path: polygon(1% 1%, 99% 1%, 99% 39%, 39% 99%, 1% 99%);
+    clip-path: polygon(1% 20%, 20% 1%, 99% 1%, 99% 39%, 39% 99%, 1% 99%);
     background-color: #EF9A53;
 }
 
 .top-right {
     top: 0;
     right: 0;
-    clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 61% 99%, 1% 39%);
+    clip-path: polygon(1% 1%, 80% 1%, 99% 20%, 99% 99%, 61% 99%, 1% 39%);
     background-color: chartreuse;
 }
 
 .bottom-left {
     bottom: 0;
     left: 0;
-    clip-path: polygon(1% 1%, 39% 1%, 99% 61%, 99% 99%, 1% 99%);
+    clip-path: polygon(1% 1%, 39% 1%, 99% 61%, 99% 99%, 20% 99%, 1% 80%);
     background-color: #DD4A48;
 }
 
 .bottom-right {
     bottom: 0;
     right: 0;
-    clip-path: polygon(61% 1%, 99% 1%, 99% 99%, 1% 99%, 1% 61%);
+    clip-path: polygon(1% 61%, 61% 1%, 99% 1%, 99% 80%, 80% 99%, 1% 99%);
     background-color: #445069;
 }
 
@@ -55,26 +53,39 @@
 }
 
 .inactive {
-    background-color: #D6CECC;
+    background-color: #fadadd;
     filter: invert(100%);
 }
 
 .image-top-left{
     width: 20vw;
+    max-width: 25vw;
+    margin-top: -12%;
+    margin-left: -12%;
 }
 
 .image-top-right{
-    width: 28vw;
+    width: 26vw;
+    max-width: 33vw;
+    margin-top: -12%;
+    margin-right: -12%;
 }
 
 .image-bottom-left{
     width: 18vw;
+    max-width: 23vw;
+    margin-bottom: -12%;
+    margin-left: -12%;
 }
 
 .image-bottom-right{
     width: 20vw;
+    max-width: 25vw;
+    margin-bottom: -12%;
+    margin-right: -12%;
 }
 
 .image-center{
-    width: 26vw;
+    width: 28vw;
+    max-width: 33vw;
 }

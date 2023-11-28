@@ -23,11 +23,16 @@ import Maps from './components/maps.js';
 import Voice from './components/voice.js';
 
 //import delle immagini, ad ogni immagine è associato un bottone
-import InfoImage from './images/Info.png';
-import OCRImage from './images/OCR.png';
-import MapsImage from './images/Maps.png';
-import VoiceImage from './images/Comando Vocale.png';
-import OnOffImage from './images/OnOff.png';
+import InfoImageActive from './images/Info-active.png';
+import InfoImageInactive from './images/Info-inactive.png';
+import OCRImageActive from './images/Ocr-active.png';
+import OCRImageInactive from './images/Ocr-inactive.png';
+import MapsImageActive from './images/Maps-active.png';
+import MapsImageInactive from './images/Maps-inactive.png';
+import VoiceImageActive from './images/Voice-active.png';
+import VoiceImageInactive from './images/Voice-inactive.png';
+import OnOffImageActive from './images/OnOff-active.png';
+import OnOffImageInactive from './images/OnOff-inactive.png';
 
 function App(){
   
@@ -44,11 +49,11 @@ function App(){
   //Vettore di Strutture dati, sono i dati di ogni singolo bottone, aggiungere elementi qua corrisponde ad aggiungere bottoni
   //alla pagina home
   const buttons = [
-    { id: 1, name: 'top-left', state: isActive, img: InfoImage },
-    { id: 2, name: 'top-right', state: false, img: OCRImage },
-    { id: 3, name: 'bottom-left', state: isActive, img: MapsImage },
-    { id: 4, name: 'bottom-right', state: isActive, img: VoiceImage },
-    { id: 5, name: 'center', state: true, img: OnOffImage },
+    { id: 1, name: 'top-left', state: isActive, img_active: InfoImageActive, img_inactive: InfoImageInactive },
+    { id: 2, name: 'top-right', state: false, img_active: OCRImageActive, img_inactive: OCRImageInactive },
+    { id: 3, name: 'bottom-left', state: isActive, img_active: MapsImageActive, img_inactive: MapsImageInactive },
+    { id: 4, name: 'bottom-right', state: isActive, img_active: VoiceImageActive, img_inactive: VoiceImageInactive },
+    { id: 5, name: 'center', state: true, img_active: OnOffImageActive, img_inactive: OnOffImageInactive },
   ];
   
   //console log di quel attributo serve a  vedere i report (eventuali errori) facendo Ispezione Elemento -> Console

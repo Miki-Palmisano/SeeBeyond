@@ -42,7 +42,8 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
                 buttonID={button.id} 
                 buttonName={button.name}
                 buttonState={button.state}
-                buttonImg={button.img}
+                buttonImgActive={button.img_active}
+                buttonImgInactive={button.img_inactive}
                 onSwitchButtonState={handleSwitchButtonState}
                 onSwitchPage={handleSwitchPage}
               />
