@@ -1,6 +1,5 @@
 import '../style/maps.css'
 import React, {useState} from 'react';
-import Map from '../functions/mapsCall.js'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function Maps({ActivePage, onActivePage}){

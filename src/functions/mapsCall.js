@@ -1,3 +1,5 @@
+//al momento non usato
+
 import React from 'react';
 import GoogleMapReact from 'google-map-react';
 
