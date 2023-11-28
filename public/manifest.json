@@ -1,21 +1,22 @@
 {
-  "short_name": "See Beyond",
-  "name": "See Beyond - Guarda Oltre",
-  "icons": {
-    "16": "favicon.ico",
-    "48": "favicon.ico",
-    "128": "favicon.ico"
-  },
-  "browser_action": {
-    "default_icon": "favicon.ico",
-    "default_popup": "popup.html"
-  },
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
-  },
-  "web_accessible_resources": [
-    "logo512.png"
+  "short_name": "SeeBeyond",
+  "name": "SeeBeyond - Guarda Oltre",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
   ],
   "start_url": ".",
   "display": "standalone",
