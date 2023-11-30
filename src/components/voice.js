@@ -159,7 +159,39 @@ const Voice = ({ActivePage, onActivePage}) => {
                 SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utterance);
             }
-        }
+        },
+        {
+            command: 'Che giorno e ora è adesso',
+            callback:() => {
+                let date = new Date();
+                let day = date.getDate();
+                let month = date.getMonth();
+                let year = date.getFullYear();
+                let time = hours + ":" + minutes;
+                var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
+                var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
+                setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utteranceDate);
+                window.speechSynthesis.speak(utteranceDate);
+            }
+        },
+        {
+            command: 'Giorno e ora corrente',
+            callback:() => {
+                let date = new Date();
+                let day = date.getDate();
+                let month = date.getMonth();
+                let year = date.getFullYear();
+                let time = hours + ":" + minutes;
+                var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
+                var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
+                setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utteranceDate);
+                window.speechSynthesis.speak(utteranceDate);
+            }
+        }
     ]
 
     const {
@@ -217,7 +249,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                         <li className="PopUpLi">Apri Maps</li>
                         <li className="PopUpLi">Torna indietro</li>
                         <li className="PopUpLi">Lista comandi</li>
-                        <li className="PopUpLi">Che ore sono</li>
+                        <li className="PopUpLi">Giorno e ora corrente</li>
                     </ul>
                     <p className="PopUpText" margin-left="5%" margin-right="5%">valgono alcune formule simili per gli stessi comandi </p>
                     <button className="CloseContainer">
