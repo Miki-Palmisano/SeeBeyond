@@ -14,28 +14,28 @@
 .top-left {
     top: 0;
     left: 0;
-    clip-path: polygon(1% 20%, 20% 1%, 99% 1%, 99% 39%, 39% 99%, 1% 99%);
+    clip-path: polygon(1% 1%, 99% 1%, 99% 39%, 39% 99%, 1% 99%);
     background-color: #EF9A53;
 }
 
 .top-right {
     top: 0;
     right: 0;
-    clip-path: polygon(1% 1%, 80% 1%, 99% 20%, 99% 99%, 61% 99%, 1% 39%);
+    clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 61% 99%, 1% 39%);
     background-color: chartreuse;
 }
 
 .bottom-left {
     bottom: 0;
     left: 0;
-    clip-path: polygon(1% 1%, 39% 1%, 99% 61%, 99% 99%, 20% 99%, 1% 80%);
+    clip-path: polygon(1% 1%, 39% 1%, 99% 61%, 99% 99%, 1% 99%);
     background-color: #DD4A48;
 }
 
 .bottom-right {
     bottom: 0;
     right: 0;
-    clip-path: polygon(1% 61%, 61% 1%, 99% 1%, 99% 80%, 80% 99%, 1% 99%);
+    clip-path: polygon(1% 61%, 61% 1%, 99% 1%, 99% 99%, 1% 99%);
     background-color: #445069;
 }
 

@@ -237,6 +237,23 @@
     flex-grow: 1;
     color:#ffffff;
 }
+
+.ComandoText{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    width: 88%;
+    height: 10%;
+    top: 60%;
+    margin-left: 6%;
+    margin-top: 2%;
+    background-color: #000000;
+    border-radius: 10px;
+    border: 5px #F0F0F0;
+    font-size: 8vw;
+    color: #F0F0F0;
+ }
   
 .VoiceGoBackContainer {
     display: flex;
