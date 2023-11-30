@@ -167,13 +167,15 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let day = date.getDate();
                 let month = date.getMonth();
                 let year = date.getFullYear();
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
                 let time = hours + ":" + minutes;
                 var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
                 var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
                 setIsActive(!isActive);
                 SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utteranceDate);
-                window.speechSynthesis.speak(utteranceDate);
+                window.speechSynthesis.speak(utteranceHour);
             }
         },
         {
@@ -183,13 +185,15 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let day = date.getDate();
                 let month = date.getMonth();
                 let year = date.getFullYear();
+                let hours = date.getHours();
+                let minutes = date.getMinutes();
                 let time = hours + ":" + minutes;
                 var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
                 var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
                 setIsActive(!isActive);
                 SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utteranceDate);
-                window.speechSynthesis.speak(utteranceDate);
+                window.speechSynthesis.speak(utteranceHour);
             }
         }
     ]
