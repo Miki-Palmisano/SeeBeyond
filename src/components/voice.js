@@ -64,6 +64,34 @@ const Voice = ({ActivePage, onActivePage}) => {
             }
         },
         {
+            command: 'Apri Ocr',
+            callback:() => {
+                onActivePage('Ocr');
+                SpeechRecognition.stopListening({continuous: false});
+            }
+        },
+        {
+            command: 'Apri pagina Ocr',
+            callback:() => {
+                onActivePage('Ocr');
+                SpeechRecognition.stopListening({continuous: false});
+            }
+        },
+        {
+            command: 'Apri Lettura',
+            callback:() => {
+                onActivePage('Ocr');
+                SpeechRecognition.stopListening({continuous: false});
+            }
+        },
+        {
+            command: 'Apri pagina Lettura',
+            callback:() => {
+                onActivePage('Ocr');
+                SpeechRecognition.stopListening({continuous: false});
+            }
+        },
+        {
             command: 'Apri Maps',
             callback:() => {
                 onActivePage('Maps');//window.open("https://maps.google.com")
@@ -185,6 +213,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                     <ul className="PopUpUl">
                         <li className="PopUpLi">Apri Home</li>
                         <li className="PopUpLi">Apri Info</li>
+                        <li className="PopUpLi">Apri Lettura</li>
                         <li className="PopUpLi">Apri Maps</li>
                         <li className="PopUpLi">Torna indietro</li>
                         <li className="PopUpLi">Lista comandi</li>
