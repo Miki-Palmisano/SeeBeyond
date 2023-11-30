@@ -8,7 +8,7 @@
 //è consigliato rispettare la nomenclatura HANDLEnome per la funzione padre e ONnome per la funzione figlio
 
 //PROPRIETà DI SEEBEYOND, TUTTI I DIRITTI E USI RISERVATI
-
+//commento
 //import librerie React
 import React, { Component , useState } from 'react';
 
