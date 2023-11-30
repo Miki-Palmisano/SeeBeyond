@@ -22,7 +22,7 @@
     top: 0;
     right: 0;
     clip-path: polygon(1% 1%, 99% 1%, 99% 99%, 61% 99%, 1% 39%);
-    background-color: chartreuse;
+    background-color: #3CCF4E;
 }
 
 .bottom-left {

@@ -1,0 +1,77 @@
+.OcrBody{
+    margin-top: -3%;
+    background-color: #003865;
+    height: 100vh;
+}
+
+.OcrInformation{
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+ }
+ 
+ .OcrH1{
+    font-size: 15vw;
+    margin-top: 12px;
+    color:#F0F0F0;
+ }
+
+ .OcrContainer {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    width: 96%;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 10px 20px;
+    background-color: #3CCF4E;
+    border-radius: 10px;
+    border: none;
+  }
+ 
+ .OcrButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12vw;
+    width: 96%;
+    margin-top: 8%;
+    margin-left: 2%;
+    margin-right: 2%;
+    height: 75ps;
+    color: #F0F0F0;
+ }
+
+ .OcrGoBackContainer{
+    display: flex;
+    position: fixed;
+    border: none;
+    bottom: 12px; /*2px in piu di voice*/
+    width: 96%;
+    padding: 5px;
+    background-color: #F5EEDC;
+    border-radius: 10px;
+ }
+ 
+ .OcrGoBack{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12vw;
+    border: none;
+    width: 96%;
+    margin-left: 2%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    height: 150px;
+    color: #EF5B0C;
+ }
+ 
+ .OcrButtonContainer {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
