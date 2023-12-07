@@ -2,6 +2,8 @@ import '../style/voice.css'
 import React, {useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
+const SpeechRecognition = window.webkitSpeechRecognition || window.SpeechRecognition;
+
 const Voice = ({ActivePage, onActivePage}) => {
 
     const [isActive, setIsActive] = useState(false); //ceck bottone avvia/stop assistente
