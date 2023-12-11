@@ -50,7 +50,7 @@ function App(){
   //alla pagina home
   const buttons = [
     { id: 1, name: 'top-left', state: isActive, img_active: InfoImageActive, img_inactive: InfoImageInactive },
-    { id: 2, name: 'top-right', state: false, img_active: OCRImageActive, img_inactive: OCRImageInactive },
+    { id: 2, name: 'top-right', state: isActive, img_active: OCRImageActive, img_inactive: OCRImageInactive },
     { id: 3, name: 'bottom-left', state: isActive, img_active: MapsImageActive, img_inactive: MapsImageInactive },
     { id: 4, name: 'bottom-right', state: isActive, img_active: VoiceImageActive, img_inactive: VoiceImageInactive },
     { id: 5, name: 'center', state: true, img_active: OnOffImageActive, img_inactive: OnOffImageInactive },
