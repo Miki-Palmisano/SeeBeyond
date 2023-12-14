@@ -8,70 +8,135 @@
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
  }
- 
- .OcrH1{
-    font-size: 15vw;
-    margin-top: 12px;
-    color:#F0F0F0;
- }
 
- .OcrContainer {
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    position: absolute;
-    width: 96%;
-    top: 30%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    padding: 10px 20px;
-    background-color: #3CCF4E;
-    border-radius: 10px;
-    border: none;
-  }
- 
- .OcrButton {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12vw;
-    width: 96%;
-    margin-top: 8%;
-    margin-left: 2%;
-    margin-right: 2%;
-    height: 75ps;
-    color: #F0F0F0;
- }
+.OcrH1{
+   font-size: 15vw;
+   margin-top: 12px;
+   color:#F0F0F0;
+}
 
- .OcrGoBackContainer{
-    display: flex;
-    position: fixed;
-    border: none;
-    bottom: 12px; /*2px in piu di voice*/
-    width: 96%;
-    padding: 5px;
-    background-color: #F5EEDC;
-    border-radius: 10px;
- }
- 
- .OcrGoBack{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 12vw;
-    border: none;
-    width: 96%;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 2%;
-    height: 150px;
-    color: #EF5B0C;
- }
- 
- .OcrButtonContainer {
-    width: 100%;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
- }
+.PopUpNotifyContainer{
+   position: fixed; /* Posiziona il modale in modo fisso rispetto alla finestra del browser */
+   background-color: #C45B3D;
+   border-radius: 10px;
+   border: none;
+   width: 60%;
+   height: 40%;
+   padding: 5px;
+   display: flex;
+   justify-content:center;
+   flex-direction: column;
+   align-items: center;
+   z-index: 2;
+   border: 2px solid #000000;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+}
+
+.PopUpNotifyTitle{
+   font-size: 9vw;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 90%;
+   height: 90%;
+   color:#ffffff;
+}
+
+.CloseNotifyContainer{
+   display: flex;
+   position: center;
+   justify-content: center;
+   align-items: flex-end;
+   border: none;
+   width: 90%;
+   margin-left: 10%;
+   margin-right: 10%;
+   height: 25%;
+   padding: 5px;
+   background-color: #F7E987;
+   border-radius: 10px;
+   margin-bottom: 5%;
+   margin-top: 5%;
+}
+
+.CloseNotify{
+   position: center;
+   position: center;
+   justify-content: center;
+   align-items: flex-end;
+   width: 100%;
+   height: 100%;
+   padding: 5px;
+   border-radius: 10px;
+   display: flex;
+   margin-left: 2%;
+   margin-right: 2%;
+   margin-top: 2%;
+   margin-bottom: 2%;
+   font-size: 10vw;
+   color: #252B48;
+}
+
+.OcrContainer {
+   display: flex;
+   justify-content: center;
+   align-items: flex-end;
+   position: absolute;
+   width: 96%;
+   top: 30%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: 10px 20px;
+   background-color: #3CCF4E;
+   border-radius: 10px;
+   border: none;
+}
+
+.OcrButton {
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 12vw;
+   width: 96%;
+   margin-top: 8%;
+   margin-left: 2%;
+   margin-right: 2%;
+   height: 75ps;
+   color: #F0F0F0;
+}
+
+.OcrGoBackContainer{
+   display: flex;
+   position: fixed;
+   border: none;
+   bottom: 12px; /*2px in piu di voice*/
+   width: 96%;
+   padding: 5px;
+   background-color: #F5EEDC;
+   border-radius: 10px;
+}
+
+.OcrGoBack{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   font-size: 12vw;
+   border: none;
+   width: 96%;
+   margin-left: 2%;
+   margin-right: 2%;
+   margin-bottom: 2%;
+   height: 150px;
+   color: #EF5B0C;
+}
+
+.OcrButtonContainer {
+   width: 100%;
+   text-align: center;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

@@ -4,9 +4,9 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 
 const Voice = ({ActivePage, onActivePage}) => {
 
-    const [isActive, setIsActive] = useState(false); //ceck bottone avvia/stop assistente
+    const [isActive, setIsActive] = useState(false); //check bottone avvia/stop assistente
 
-    const [showPopUp, setShowPopUp] = useState(false);//ceck popup comandi
+    const [showPopUp, setShowPopUp] = useState(false);//check popup comandi
 
     const handleGoBack = () => {
         onActivePage('Home');
@@ -161,7 +161,7 @@ const Voice = ({ActivePage, onActivePage}) => {
             }
         },
         {
-            command: 'Che giorno e ora è adesso',
+            command: 'Ora e giorno',
             callback:() => {
                 let date = new Date();
                 let day = date.getDate();
@@ -179,7 +179,7 @@ const Voice = ({ActivePage, onActivePage}) => {
             }
         },
         {
-            command: 'Giorno e ora corrente',
+            command: 'Giorno e ora',
             callback:() => {
                 let date = new Date();
                 let day = date.getDate();
@@ -244,22 +244,22 @@ const Voice = ({ActivePage, onActivePage}) => {
             </div>
         }
         {showPopUp && (
-                <div className="PopUpContainer" >
-                    <h1 className='PopUpTitle'>Comandi Abilitati:</h1>
-                    <ul className="PopUpUl">
-                        <li className="PopUpLi">Apri Home</li>
-                        <li className="PopUpLi">Apri Info</li>
-                        <li className="PopUpLi">Apri Lettura</li>
-                        <li className="PopUpLi">Apri Maps</li>
-                        <li className="PopUpLi">Torna indietro</li>
-                        <li className="PopUpLi">Lista comandi</li>
-                        <li className="PopUpLi">Giorno e ora</li>
-                    </ul>
-                    <p className="PopUpText" margin-left="5%" margin-right="5%">valgono alcune formule simili per gli stessi comandi </p>
-                    <button className="CloseContainer">
-                        <h1 className="Close" onClick={() => setShowPopUp(false)}>CHIUDI</h1>
-                    </button>
-                </div>
+            <div className="PopUpContainer" >
+                <h1 className='PopUpTitle'>Comandi Abilitati:</h1>
+                <ul className="PopUpUl">
+                    <li className="PopUpLi">Apri Home</li>
+                    <li className="PopUpLi">Apri Info</li>
+                    <li className="PopUpLi">Apri Lettura</li>
+                    <li className="PopUpLi">Apri Maps</li>
+                    <li className="PopUpLi">Torna indietro</li>
+                    <li className="PopUpLi">Lista comandi</li>
+                    <li className="PopUpLi">Giorno e/o ora</li>
+                </ul>
+                <p className="PopUpText" margin-left="5%" margin-right="5%">valgono alcune formule simili per gli stessi comandi </p>
+                <button className="CloseContainer">
+                    <h1 className="Close" onClick={() => setShowPopUp(false)}>CHIUDI</h1>
+                </button>
+            </div>
         )}
         </>
 
