@@ -30,7 +30,7 @@ function OCR({ActivePage, onActivePage}){
         {
         showNotify && (
             <div className="PopUpNotifyContainer" >
-                <h1 className='PopUpNotifyTitle'> WORK IN PROGRESS</h1>
+                <h1 className='PopUpNotifyTitle'>WORK IN PROGRESS stay tuned</h1>
                 <button className="CloseNotifyContainer">
                     <h1 className="CloseNotify" onClick={() => setShowNotify(false)}>CHIUDI</h1>
                 </button>
