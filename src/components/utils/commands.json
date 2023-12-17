@@ -1,0 +1,104 @@
+[
+    {
+      "command": "Torna indietro",
+      "callback": "onActivePage",
+      "args": "Home"
+    },
+    {
+      "command": "Torna alla pagina precedente",
+      "callback": "onActivePage",
+      "args": "Home"
+    },
+    {
+      "command": "Torna alla Home",
+      "callback": "onActivePage",
+      "args": "Home"
+    },
+    {
+      "command": "Apri Home",
+      "callback": "onActivePage",
+      "args": "Home"
+    },
+    {
+      "command": "Apri pagina Home",
+      "callback": "onActivePage",
+      "args": "Home"
+    },
+    {
+      "command": "Apri Info",
+      "callback": "onActivePage",
+      "args": "Info"
+    },
+    {
+      "command": "Apri pagina Info",
+      "callback": "onActivePage",
+      "args": "Info"
+    },
+    {
+      "command": "Apri Ocr",
+      "callback": "onActivePage",
+      "args": "Ocr"
+    },
+    {
+      "command": "Apri pagina Ocr",
+      "callback": "onActivePage",
+      "args": "Ocr"
+    },
+    {
+      "command": "Apri Lettura",
+      "callback": "onActivePage",
+      "args": "Ocr"
+    },
+    {
+      "command": "Apri pagina Lettura",
+      "callback": "onActivePage",
+      "args": "Ocr"
+    },
+    {
+      "command": "Apri Maps",
+      "callback": "onActivePage",
+      "args": "Maps"
+    },
+    {
+      "command": "Apri pagina Maps",
+      "callback": "onActivePage",
+      "args": "Maps"
+    },
+    {
+      "command": "Lista Comandi",
+      "callback": "setShowPopUp"
+    },
+    {
+      "command": "Quali sono i Comandi",
+      "callback": "setShowPopUp"
+    },
+    {
+      "command": "Che ore sono",
+      "callback": "speakTime"
+    },
+    {
+      "command": "Che ora è",
+      "callback": "speakTime"
+    },
+    {
+      "command": "Che giorno è oggi",
+      "callback": "speakDate"
+    },
+    {
+        "command": "Che giorno è",
+        "callback": "speakDate"
+    },
+    {
+      "command": "Ora e giorno",
+      "callback": "speakDateTime"
+    },
+    {
+      "command": "Giorno e ora",
+      "callback": "speakDateTime"
+    },
+    {
+      "command": "Come Stai",
+      "callback": "meglio di te"
+    }
+]
+  

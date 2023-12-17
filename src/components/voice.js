@@ -3,211 +3,81 @@ import React, {useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 
+const commands = require('./utils/commands.json');
+
 const Voice = ({ActivePage, onActivePage}) => {
 
     const [isActive, setIsActive] = useState(false); //check bottone avvia/stop assistente
 
     const [showPopUp, setShowPopUp] = useState(false);//check popup comandi
 
-    const handleGoBack = () => {
-        onActivePage('Home');
+    const speak = (text) => {
+        let utterance = new SpeechSynthesisUtterance(text);
+        SpeechRecognition.stopListening();
+        window.speechSynthesis.cancel();
+        window.speechSynthesis.speak(utterance);
     }
 
-    
-    const commands = [
-        {
-            command: 'Torna indietro',
-            callback:() =>  {
-                handleGoBack();
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Torna alla pagina precedente',
-            callback:() =>  {
-                handleGoBack();
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Torna alla Home',
-            callback:() =>  {
-                handleGoBack();
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri Home',
-            callback:() =>  {
-                handleGoBack();
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri pagina Home',
-            callback:() => {
-                handleGoBack();
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri Info',
-            callback:() => {
-                onActivePage('Info');
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri pagina Info',
-            callback:() => {
-                onActivePage('Info');
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri Ocr',
-            callback:() => {
-                onActivePage('Ocr');
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri pagina Ocr',
-            callback:() => {
-                onActivePage('Ocr');
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri Lettura',
-            callback:() => {
-                onActivePage('Ocr');
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri pagina Lettura',
-            callback:() => {
-                onActivePage('Ocr');
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri Maps',
-            callback:() => {
-                onActivePage('Maps');//window.open("https://maps.google.com")
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Apri pagina Maps',
-            callback:() => {
-                onActivePage('Maps');//window.open("https://maps.google.com")
-                //SpeechRecognition.stopListening({continuous: false});
-            }
-        },
-        {
-            command: 'Lista Comandi',
-            callback:() => {
-                setShowPopUp(true);
-                /*setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});*/
-            }
-        },
-        {
-            command: 'Quali sono i Comandi',
-            callback:() => {
-                setShowPopUp(true);
-                /*setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});*/
-            }
-        },
-        {
-            command: 'Che ore sono',
-            callback:() => {
-                let date = new Date();
-                let hours = date.getHours();
-                let minutes = date.getMinutes();
-                let time = hours + ":" + minutes;
-                var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
-                /*setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utterance);*/
-            }
-        },
-        {
-            command: 'Che ora è',
-            callback:() => {
-                let date = new Date();
-                let hours = date.getHours();
-                let minutes = date.getMinutes();
-                let time = hours + ":" + minutes;
-                var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
-                /*setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utterance);*/
-            }
-        },
-        {
-            command: 'Che giorno è oggi',
-            callback:() => {
-                let date = new Date();
-                let day = date.getDate();
-                let month = date.getMonth();
-                let year = date.getFullYear();
-                var utterance = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                /*setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utterance);*/
-            }
-        },
-        {
-            command: 'Ora e giorno',
-            callback:() => {
-                let date = new Date();
-                let day = date.getDate();
-                let month = date.getMonth();
-                let year = date.getFullYear();
-                let hours = date.getHours();
-                let minutes = date.getMinutes();
-                let time = hours + ":" + minutes;
-                var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
-                var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                /*setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utteranceDate);
-                window.speechSynthesis.speak(utteranceHour);*/
-            }
-        },
-        {
-            command: 'Giorno e ora',
-            callback:() => {
-                let date = new Date();
-                let day = date.getDate();
-                let month = date.getMonth();
-                let year = date.getFullYear();
-                let hours = date.getHours();
-                let minutes = date.getMinutes();
-                let time = hours + ":" + minutes;
-                var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
-                var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                /*setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utteranceDate);
-                window.speechSynthesis.speak(utteranceHour);*/
-            }
-        }
-    ]
+    const speakTime = () => {
+        let date = new Date();
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let time = hours + ":" + minutes;
+        speak("Sono le ore " + time);
+    }
+
+    const speakDate = () => {
+        let date = new Date();
+        let months = date.getMonth();
+        let months_string = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio','Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
+        let day = date.getDate();
+        let year = date.getFullYear();
+        let data = day + " " + months_string[months] + " " + year;
+        speak("Oggi è il " + data);
+    }
+
+    const speakDateTime = () => {  
+        speakDate();
+        speakTime();
+    }
+
+    //mappa di funzioni
+    const commandCallback = {
+        onActivePage,
+        speakTime,
+        speakDate,
+        setShowPopUp,
+        speakDateTime
+    }
+
+    const executeCommand = (callback, args) => {
+        const callbackFunction = commandCallback[callback];
+
+        if (args && typeof callbackFunction === 'function') {
+            callbackFunction(args);
+        } else if (typeof callbackFunction === 'function') {
+            callbackFunction();
+        } else {
+            speak(callback);
+        }    
+    }
 
     const {
         transcript,
         listening,
         resetTranscript,
-        browserSupportsSpeechRecognition
-    } = useSpeechRecognition(/*{commands}*/); 
+        browserSupportsSpeechRecognition,
+      } = useSpeechRecognition({
+        commands: commands.map((cmd) => ({
+          command: cmd.command,
+          callback: () => {
+            executeCommand(cmd.callback, cmd.args);
+          },
+        })),
+    });
 
     if (!browserSupportsSpeechRecognition) {
-        return <span>Browser doesn't support speech recognition.</span>;
+            return <span>Browser doesn't support speech recognition.</span>;
     }
     return(
         <>
@@ -231,8 +101,6 @@ const Voice = ({ActivePage, onActivePage}) => {
                             }
                             else {
                                 SpeechRecognition.stopListening({continuous: false});
-                                let utterance = new SpeechSynthesisUtterance("Assistente vocale disattivato");
-                                window.speechSynthesis.speak(utterance);
                             }
                         }
                     }>
@@ -243,7 +111,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                 </div>
                 <div className="VoiceButtonContainer">
                     <button className="VoiceGoBackContainer">
-                        <h1 className="VoiceGoBack" onClick={() => handleGoBack()}>TORNA INDIETRO</h1>
+                        <h1 className="VoiceGoBack" onClick={() => onActivePage('Home')}>TORNA INDIETRO</h1>
                     </button>
                 </div>
             </div>
