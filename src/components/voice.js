@@ -2,6 +2,7 @@ import '../style/voice.css'
 import React, {useState } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
+
 const Voice = ({ActivePage, onActivePage}) => {
 
     const [isActive, setIsActive] = useState(false); //check bottone avvia/stop assistente
@@ -18,107 +19,107 @@ const Voice = ({ActivePage, onActivePage}) => {
             command: 'Torna indietro',
             callback:() =>  {
                 handleGoBack();
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Torna alla pagina precedente',
             callback:() =>  {
                 handleGoBack();
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Torna alla Home',
             callback:() =>  {
                 handleGoBack();
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri Home',
             callback:() =>  {
                 handleGoBack();
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri pagina Home',
             callback:() => {
                 handleGoBack();
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri Info',
             callback:() => {
                 onActivePage('Info');
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri pagina Info',
             callback:() => {
                 onActivePage('Info');
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri Ocr',
             callback:() => {
                 onActivePage('Ocr');
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri pagina Ocr',
             callback:() => {
                 onActivePage('Ocr');
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri Lettura',
             callback:() => {
                 onActivePage('Ocr');
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri pagina Lettura',
             callback:() => {
                 onActivePage('Ocr');
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri Maps',
             callback:() => {
                 onActivePage('Maps');//window.open("https://maps.google.com")
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Apri pagina Maps',
             callback:() => {
                 onActivePage('Maps');//window.open("https://maps.google.com")
-                SpeechRecognition.stopListening({continuous: false});
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Lista Comandi',
             callback:() => {
                 setShowPopUp(true);
-                setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
+                //setIsActive(!isActive);
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
             command: 'Quali sono i Comandi',
             callback:() => {
                 setShowPopUp(true);
-                setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
+                //setIsActive(!isActive);
+                //SpeechRecognition.stopListening({continuous: false});
             }
         },
         {
@@ -129,8 +130,8 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let minutes = date.getMinutes();
                 let time = hours + ":" + minutes;
                 var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
-                setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
+                //setIsActive(!isActive);
+                //SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utterance);
             }
         },
@@ -142,8 +143,8 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let minutes = date.getMinutes();
                 let time = hours + ":" + minutes;
                 var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
-                setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
+                //setIsActive(!isActive);
+                //SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utterance);
             }
         },
@@ -155,8 +156,8 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let month = date.getMonth();
                 let year = date.getFullYear();
                 var utterance = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
+                //setIsActive(!isActive);
+                //SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utterance);
             }
         },
@@ -172,8 +173,8 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let time = hours + ":" + minutes;
                 var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
                 var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
+                //setIsActive(!isActive);
+                //SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utteranceDate);
                 window.speechSynthesis.speak(utteranceHour);
             }
@@ -190,8 +191,8 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let time = hours + ":" + minutes;
                 var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
                 var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                setIsActive(!isActive);
-                SpeechRecognition.stopListening({continuous: false});
+                //setIsActive(!isActive);
+                //SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utteranceDate);
                 window.speechSynthesis.speak(utteranceHour);
             }
