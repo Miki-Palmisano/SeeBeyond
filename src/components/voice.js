@@ -13,7 +13,7 @@ const Voice = ({ActivePage, onActivePage}) => {
         onActivePage('Home');
     }
 
-
+    
     const commands = [
         {
             command: 'Torna indietro',
@@ -110,16 +110,16 @@ const Voice = ({ActivePage, onActivePage}) => {
             command: 'Lista Comandi',
             callback:() => {
                 setShowPopUp(true);
-                //setIsActive(!isActive);
-                //SpeechRecognition.stopListening({continuous: false});
+                /*setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});*/
             }
         },
         {
             command: 'Quali sono i Comandi',
             callback:() => {
                 setShowPopUp(true);
-                //setIsActive(!isActive);
-                //SpeechRecognition.stopListening({continuous: false});
+                /*setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});*/
             }
         },
         {
@@ -130,9 +130,9 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let minutes = date.getMinutes();
                 let time = hours + ":" + minutes;
                 var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
-                //setIsActive(!isActive);
-                //SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utterance);
+                /*setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utterance);*/
             }
         },
         {
@@ -143,9 +143,9 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let minutes = date.getMinutes();
                 let time = hours + ":" + minutes;
                 var utterance = new SpeechSynthesisUtterance("Sono le ore " + time);
-                //setIsActive(!isActive);
-                //SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utterance);
+                /*setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utterance);*/
             }
         },
         {
@@ -156,9 +156,9 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let month = date.getMonth();
                 let year = date.getFullYear();
                 var utterance = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                //setIsActive(!isActive);
-                //SpeechRecognition.stopListening({continuous: false});
-                window.speechSynthesis.speak(utterance);
+                /*setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
+                window.speechSynthesis.speak(utterance);*/
             }
         },
         {
@@ -173,10 +173,10 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let time = hours + ":" + minutes;
                 var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
                 var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                //setIsActive(!isActive);
-                //SpeechRecognition.stopListening({continuous: false});
+                /*setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utteranceDate);
-                window.speechSynthesis.speak(utteranceHour);
+                window.speechSynthesis.speak(utteranceHour);*/
             }
         },
         {
@@ -191,10 +191,10 @@ const Voice = ({ActivePage, onActivePage}) => {
                 let time = hours + ":" + minutes;
                 var utteranceHour = new SpeechSynthesisUtterance("Sono le ore " + time);
                 var utteranceDate = new SpeechSynthesisUtterance("Oggi è il " + day + " " + month + " " + year);
-                //setIsActive(!isActive);
-                //SpeechRecognition.stopListening({continuous: false});
+                /*setIsActive(!isActive);
+                SpeechRecognition.stopListening({continuous: false});
                 window.speechSynthesis.speak(utteranceDate);
-                window.speechSynthesis.speak(utteranceHour);
+                window.speechSynthesis.speak(utteranceHour);*/
             }
         }
     ]
@@ -204,7 +204,7 @@ const Voice = ({ActivePage, onActivePage}) => {
         listening,
         resetTranscript,
         browserSupportsSpeechRecognition
-    } = useSpeechRecognition({commands}); 
+    } = useSpeechRecognition(/*{commands}*/); 
 
     if (!browserSupportsSpeechRecognition) {
         return <span>Browser doesn't support speech recognition.</span>;
@@ -229,7 +229,11 @@ const Voice = ({ActivePage, onActivePage}) => {
                                 resetTranscript();
                                 SpeechRecognition.startListening({continuous: true, language: 'it-IT'});
                             }
-                            else SpeechRecognition.stopListening({continuous: false})
+                            else {
+                                SpeechRecognition.stopListening({continuous: false});
+                                let utterance = new SpeechSynthesisUtterance("Assistente vocale disattivato");
+                                window.speechSynthesis.speak(utterance);
+                            }
                         }
                     }>
                         <h1 className={isActive ? "Stop" : "Start"}>{isActive ? "STOP" : "AVVIA"}</h1>
