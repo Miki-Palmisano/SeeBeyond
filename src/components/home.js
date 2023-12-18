@@ -15,18 +15,11 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
   const firebaseConfig = { databaseURL: "https://seebeyond-8bdb7-default-rtdb.europe-west1.firebasedatabase.app/" };
   const app = initializeApp(firebaseConfig);
   const database = getDatabase(app);
-  
   /* lettura (disabilitata in quanto utile solo per verifica)
   const dbRef = ref(getDatabase(app));
   get(child(dbRef, `Impostazioni/Status`)).then((snapshot) => {
-    if (snapshot.val() === "ON") {
-      console.log(snapshot.val());
-    }
-  }).catch((error) => {
-    console.error(error);
-  });
-  */
-
+    if (snapshot.val() === "ON") { console.log(snapshot.val()); }
+  }).catch((error) => { console.error(error); }); */
   const writeUserData = (value) => {
     set(ref(database, 'Impostazioni/'), {
       Status : value
@@ -37,17 +30,17 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
   //funzione che cambia lo stato del bottone, richiama la funziona passata come props
   const handleSwitchButtonState = () => {
 
+    //salva valore di accensione nel db
     const newState = !isActive;
-
-    SetCookie('buttonState', !isActive, 2); //cambio il valore del cookie
-    setIsActive(!isActive);
-
     if(newState === true){
       writeUserData("ON");
     }
     else{
       writeUserData("OFF");
-    }
+    }//fine codice nuovo (prova)
+
+    SetCookie('buttonState', !isActive, 2); //cambio il valore del cookie
+    setIsActive(!isActive);
   };  
 
   //funzione che cambia la pagina attiva, richiama la funziona passata come props
