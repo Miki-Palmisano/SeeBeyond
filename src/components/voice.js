@@ -32,8 +32,16 @@ const Voice = ({ActivePage, onActivePage}) => {
       }, []);
 
       const speakDateTime = useCallback(() => {
-        speakDate();
-        speakTime();
+        let date = new Date();
+        let months = date.getMonth();
+        let months_string = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
+        let day = date.getDate();
+        let year = date.getFullYear();
+        let data = day + " " + months_string[months] + " " + year;
+        let hours = date.getHours();
+        let minutes = date.getMinutes();
+        let time = hours + ":" + minutes;
+        setResponse("Sono le ore " + time + "del " + data);
       }, [speakDate, speakTime]);
     
       const commandCallback = {
