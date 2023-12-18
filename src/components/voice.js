@@ -1,5 +1,5 @@
 import '../style/voice.css'
-import React, {useState, useCallback } from 'react';
+import React, {useState, useCallback} from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 
@@ -36,13 +36,13 @@ const Voice = ({ActivePage, onActivePage}) => {
         speakTime();
       }, [speakDate, speakTime]);
     
-      const commandCallback = useCallback({
+      const commandCallback = {
         onActivePage,
         speakTime,
         speakDate,
         setShowPopUp,
         speakDateTime
-      }, [onActivePage, speakTime, speakDate, setShowPopUp, speakDateTime]);
+      }
     
 
     const executeCommand = (callback, args) => {
@@ -98,6 +98,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                                 SpeechRecognition.stopListening();
                                 let utterance = new SpeechSynthesisUtterance(response);
                                 window.speechSynthesis.speak(utterance);
+                                setResponse('');
                             }
                         }
                     }>
