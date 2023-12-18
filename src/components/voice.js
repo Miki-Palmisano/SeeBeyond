@@ -1,5 +1,5 @@
 import '../style/voice.css'
-import React, {useState } from 'react';
+import React, {useState, useCallback } from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 
@@ -11,44 +11,39 @@ const Voice = ({ActivePage, onActivePage}) => {
 
     const [showPopUp, setShowPopUp] = useState(false);//check popup comandi
 
-    const speak = (text) => {
-        let utterance = new SpeechSynthesisUtterance(text);
-        SpeechRecognition.stopListening();
-        window.speechSynthesis.cancel();
-        window.speechSynthesis.speak(utterance);
-    }
+    const [response, setResponse] = useState(''); //risposta assistente
 
-    const speakTime = () => {
+    const speakTime = useCallback(() => {
         let date = new Date();
         let hours = date.getHours();
         let minutes = date.getMinutes();
         let time = hours + ":" + minutes;
-        speak("Sono le ore " + time);
-    }
+        setResponse("Sono le ore " + time);
+      }, []);
 
-    const speakDate = () => {
+      const speakDate = useCallback(() => {
         let date = new Date();
         let months = date.getMonth();
-        let months_string = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio','Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
+        let months_string = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
         let day = date.getDate();
         let year = date.getFullYear();
         let data = day + " " + months_string[months] + " " + year;
-        speak("Oggi è il " + data);
-    }
+        setResponse("Oggi è il " + data);
+      }, []);
 
-    const speakDateTime = () => {  
+      const speakDateTime = useCallback(() => {
         speakDate();
         speakTime();
-    }
-
-    //mappa di funzioni
-    const commandCallback = {
+      }, [speakDate, speakTime]);
+    
+      const commandCallback = useCallback({
         onActivePage,
         speakTime,
         speakDate,
         setShowPopUp,
         speakDateTime
-    }
+      }, [onActivePage, speakTime, speakDate, setShowPopUp, speakDateTime]);
+    
 
     const executeCommand = (callback, args) => {
         const callbackFunction = commandCallback[callback];
@@ -58,7 +53,7 @@ const Voice = ({ActivePage, onActivePage}) => {
         } else if (typeof callbackFunction === 'function') {
             callbackFunction();
         } else {
-            speak(callback);
+            setResponse(callback);
         }    
     }
 
@@ -100,8 +95,9 @@ const Voice = ({ActivePage, onActivePage}) => {
                                 SpeechRecognition.startListening({continuous: true, language: 'it-IT'});
                             }
                             else {
-                                //inserire qui il codice per parlare per farlo funzionare su iPhone
-                                SpeechRecognition.stopListening({continuous: false});
+                                SpeechRecognition.stopListening();
+                                let utterance = new SpeechSynthesisUtterance(response);
+                                window.speechSynthesis.speak(utterance);
                             }
                         }
                     }>
