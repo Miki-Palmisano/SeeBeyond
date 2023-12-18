@@ -100,6 +100,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                                 SpeechRecognition.startListening({continuous: true, language: 'it-IT'});
                             }
                             else {
+                                //inserire qui il codice per parlare per farlo funzionare su iPhone
                                 SpeechRecognition.stopListening({continuous: false});
                             }
                         }
