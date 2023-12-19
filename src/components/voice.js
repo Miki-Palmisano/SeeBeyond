@@ -112,6 +112,7 @@ const Voice = ({ActivePage, onActivePage}) => {
                                 let utterance = new SpeechSynthesisUtterance(response);
                                 window.speechSynthesis.speak(utterance);
                                 setResponse('');
+                                SpeechRecognition.stopListening();
                             }
                         }
                     }>
