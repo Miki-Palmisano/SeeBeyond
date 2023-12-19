@@ -12,7 +12,7 @@ function OCR({ActivePage, onActivePage, database}){
 
     const readDBText = () => {
         const dbRef = ref(database);
-        get(child(dbRef, `Testo Rilevato/`)).then((snapshot) => {
+        get(child(dbRef, `Testo Rilevato/Testo`)).then((snapshot) => {
             let utterance = new SpeechSynthesisUtterance(snapshot.val());
             window.speechSynthesis.speak(utterance);
         }).catch((error) => { console.error(error); });

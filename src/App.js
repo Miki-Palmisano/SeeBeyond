@@ -84,14 +84,14 @@ function App(){
   }
 
   //lettura+speaker oggetti riconosciuti da db (impostato ogni 30 secondi)
-  /*setInterval(() => {
+  setInterval(() => {
     const dbRef = ref(database);
     get(child(dbRef, 'Oggetti Rilevati/')).then((snapshot) => {
       console.log(snapshot.val());
       let utterance = new SpeechSynthesisUtterance(snapshot.val());
       window.speechSynthesis.speak(utterance);
     }).catch((error) => { console.error(error); });
-  }, 10000);*/
+  }, 10000);
   //fine lettura+speaker oggetti riconosciuti da db
 
   let activePage;
