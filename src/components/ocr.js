@@ -1,8 +1,6 @@
 import '../style/ocr.css'
 import React, {useState} from 'react';
-import { getDatabase, ref, child, get, set } from "firebase/database";
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-
+import { getDatabase, ref, child, get } from "firebase/database";
 
 function OCR({ActivePage, onActivePage, database}){
 
@@ -10,10 +8,11 @@ function OCR({ActivePage, onActivePage, database}){
         onActivePage('Home');
     }
 
+    const [isActive, setIsActive] = useState(true); //check bottone on/off AI
+
     const readDBText = () => {
         const dbRef = ref(database);
-        get(child(dbRef, `Testo Rilevato/Testo`)).then((snapshot) => {
-            console.log(snapshot.val());
+        get(child(dbRef, `Testo Rilevato/`)).then((snapshot) => {
             let utterance = new SpeechSynthesisUtterance(snapshot.val());
             window.speechSynthesis.speak(utterance);
         }).catch((error) => { console.error(error); });
@@ -39,3 +38,9 @@ function OCR({ActivePage, onActivePage, database}){
 }
 
 export default OCR;
+
+/*
+<button className={isActive ? "AiOnContainer" : "AiOffContainer"} onClick={() => {setIsActive(!isActive); } }>
+    <h1 className="AiButton">{isActive ? "DISATTIVA AI" : "ATTIVA AI"}</h1>
+</button>
+*/
