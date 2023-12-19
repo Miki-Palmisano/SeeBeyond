@@ -84,15 +84,33 @@ function App(){
   }
 
   //lettura+speaker oggetti riconosciuti da db (impostato ogni 30 secondi)
-  setInterval(() => {
+  const readObjDB = () => {
     const dbRef = ref(database);
-    get(child(dbRef, 'Oggetti Rilevati/')).then((snapshot) => {
+    get(child(dbRef, 'Oggetti Riconosciuti/Veicolo')).then((snapshot) => {
       console.log(snapshot.val());
       let utterance = new SpeechSynthesisUtterance(snapshot.val());
       window.speechSynthesis.speak(utterance);
     }).catch((error) => { console.error(error); });
-  }, 10000);
-  //fine lettura+speaker oggetti riconosciuti da db
+    get(child(dbRef, 'Oggetti Riconosciuti/Segnale')).then((snapshot) => {
+      console.log(snapshot.val());
+      let utterance = new SpeechSynthesisUtterance(snapshot.val());
+      window.speechSynthesis.speak(utterance);
+    }).catch((error) => { console.error(error); });
+    get(child(dbRef, 'Oggetti Riconosciuti/Animale')).then((snapshot) => {
+      console.log(snapshot.val());
+      let utterance = new SpeechSynthesisUtterance(snapshot.val());
+      window.speechSynthesis.speak(utterance);
+    }).catch((error) => { console.error(error); });
+  };
+
+  useEffect(() => {
+    readObjDB(); // Esegui il codice all'avvio
+    const interval = setInterval(readObjDB, 60000); // Esegui il codice ogni 60 secondi
+
+    return () => {
+      clearInterval(interval); // Pulisci l'intervallo quando il componente viene smontato
+    };
+  }, []);
 
   let activePage;
 
