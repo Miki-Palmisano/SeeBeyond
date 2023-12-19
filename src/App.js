@@ -62,11 +62,8 @@ function App(){
         //SetCookie('buttonState', false, 2); //i cookie non sono più necessari, lascio l'istruzione per sfizio
         setIsActive(false);
       }
-      
     });
   }, []); // L'array vuoto come secondo argomento significa che questo effetto verrà eseguito solo al montaggio del componente
-  
-  //console.log(isActive);
       
   //Vettore di Strutture dati, sono i dati di ogni singolo bottone, aggiungere elementi qua corrisponde ad aggiungere bottoni
   //alla pagina home
@@ -85,6 +82,17 @@ function App(){
   const handlePage = (page) => {
     setActivePage(page);
   }
+
+  //lettura+speaker oggetti riconosciuti da db (impostato ogni 30 secondi)
+  const dbRef = ref(database);
+  setInterval(() => {
+    const dbRef = ref(database);
+    get(child(dbRef, `Oggetti Rilevati/`)).then((snapshot) => {
+        let utterance = new SpeechSynthesisUtterance(snapshot.val());
+        window.speechSynthesis.speak(utterance);
+    }).catch((error) => { console.error(error); });
+  }, 30000);
+  //fine lettura+speaker oggetti riconosciuti da db
 
   let activePage;
 

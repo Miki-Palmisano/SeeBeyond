@@ -8,7 +8,7 @@ function OCR({ActivePage, onActivePage, database}){
         onActivePage('Home');
     }
 
-    const [isActive, setIsActive] = useState(true); //check bottone on/off AI
+    const [isActive, setIsActive] = useState(true); //check bottone on/off AI, non usato al momento (bottone non presente per ora)
 
     const readDBText = () => {
         const dbRef = ref(database);
