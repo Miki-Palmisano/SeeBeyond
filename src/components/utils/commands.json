@@ -64,15 +64,7 @@
       "callback": "onActivePage",
       "args": "Maps"
     },
-    {
-      "command": "Lista Comandi",
-      "callback": "setShowPopUp"
-    },
-    {
-      "command": "Quali sono i comandi",
-      "callback": "setShowPopUp(true)"
-    },
-    {
+    {                               
       "command": "Che ore sono",
       "callback": "speakTime"
     },

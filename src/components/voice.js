@@ -53,7 +53,6 @@ const Voice = ({ActivePage, onActivePage}) => {
         onActivePage,
         speakTime,
         speakDate,
-        setShowPopUp,
         speakDateTime
       }
     
@@ -137,7 +136,6 @@ const Voice = ({ActivePage, onActivePage}) => {
                     <li className="PopUpLi">Apri Lettura</li>
                     <li className="PopUpLi">Apri Maps</li>
                     <li className="PopUpLi">Torna indietro</li>
-                    <li className="PopUpLi">Lista comandi</li>
                     <li className="PopUpLi">Giorno e/o ora</li>
                 </ul>
                 <p className="PopUpText" margin-left="5%" margin-right="5%">valgono alcune formule simili per gli stessi comandi </p>
