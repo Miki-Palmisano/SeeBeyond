@@ -9,11 +9,13 @@ function OCR({ActivePage, onActivePage, database}){
     const handleGoBack = () => {
         onActivePage('Home');
     }
-    
+
     const readDBText = () => {
         const dbRef = ref(database);
         get(child(dbRef, `Testo Rilevato/Testo`)).then((snapshot) => {
-            window.speechSynthesis.speak(snapshot.val());
+            console.log(snapshot.val());
+            let utterance = new SpeechSynthesisUtterance(snapshot.val());
+            window.speechSynthesis.speak(utterance);
         }).catch((error) => { console.error(error); });
     }
 
