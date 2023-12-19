@@ -63,6 +63,7 @@ const Voice = ({ActivePage, onActivePage}) => {
 
         if (args && typeof callbackFunction === 'function') {
             callbackFunction(args);
+            SpeechRecognition.stopListening();
         } else if (typeof callbackFunction === 'function') {
             callbackFunction();
         } else {
