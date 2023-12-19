@@ -19,6 +19,7 @@ const Voice = ({ActivePage, onActivePage}) => {
         let minutes = date.getMinutes();
         let time = hours + ":" + minutes;
         setResponse("Sono le ore " + time);
+        SpeechRecognition.stopListening();
       }, []);
 
       const speakDate = useCallback(() => {
@@ -29,19 +30,23 @@ const Voice = ({ActivePage, onActivePage}) => {
         let year = date.getFullYear();
         let data = day + " " + months_string[months] + " " + year;
         setResponse("Oggi è il " + data);
+        SpeechRecognition.stopListening();
       }, []);
 
       const speakDateTime = useCallback(() => {
         let date = new Date();
+        //giorno
         let months = date.getMonth();
         let months_string = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
         let day = date.getDate();
         let year = date.getFullYear();
         let data = day + " " + months_string[months] + " " + year;
+        //ora
         let hours = date.getHours();
         let minutes = date.getMinutes();
         let time = hours + ":" + minutes;
         setResponse("Sono le ore " + time + "del " + data);
+        SpeechRecognition.stopListening();
       }, [speakDate, speakTime]);
     
       const commandCallback = {
@@ -62,6 +67,7 @@ const Voice = ({ActivePage, onActivePage}) => {
             callbackFunction();
         } else {
             setResponse(callback);
+            SpeechRecognition.stopListening();
         }    
     }
 
@@ -103,7 +109,6 @@ const Voice = ({ActivePage, onActivePage}) => {
                                 SpeechRecognition.startListening({continuous: true, language: 'it-IT'});
                             }
                             else {
-                                SpeechRecognition.stopListening();
                                 let utterance = new SpeechSynthesisUtterance(response);
                                 window.speechSynthesis.speak(utterance);
                                 setResponse('');

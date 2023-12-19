@@ -85,8 +85,8 @@
       "callback": "speakDate"
     },
     {
-        "command": "Che giorno è",
-        "callback": "speakDate"
+      "command": "Che giorno è",
+      "callback": "speakDate"
     },
     {
       "command": "Ora e giorno",

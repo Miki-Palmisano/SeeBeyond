@@ -8,12 +8,12 @@
 //è consigliato rispettare la nomenclatura HANDLEnome per la funzione padre e ONnome per la funzione figlio
 
 //PROPRIETà DI SEEBEYOND, TUTTI I DIRITTI E USI RISERVATI
-//commento
+
 //import librerie React
-import React, { Component , useState } from 'react';
+import React, { Component , useState, useEffect } from 'react';
 
 //import functions
-import {GetCookie, SetCookie} from './functions/cookie.js'; //se ne importo solo una mi da errore
+//import {GetCookie, SetCookie} from './functions/cookie.js'; //se ne importo solo una mi da errore
 
 //import componenti, ad ogni componente è associata una pagina
 import Home from './components/home.js';
@@ -34,17 +34,39 @@ import VoiceImageInactive from './images/Voice-inactive.png';
 import OnOffImageActive from './images/OnOff-active.png';
 import OnOffImageInactive from './images/OnOff-inactive.png';
 
+import { initializeApp } from "firebase/app";
+import { getDatabase, ref, child, get, set } from "firebase/database";
+import { onValue } from "firebase/database";
+
 function App(){
   
   //funzione react, ActivePage è letteralmente la pagina attiva e viene inizializzata a Home
   const [ActivePage, setActivePage] = useState('Home');
 
-  //assegno a buttonState il valore del cookie, convertendolo in booleano (essendo String)
-  var buttonState = false;
-  if(GetCookie('buttonState') == 'true') { var buttonState = true; }
+  //inizializzo il db
+  const firebaseConfig = { databaseURL: "https://seebeyond-8bdb7-default-rtdb.europe-west1.firebasedatabase.app/" };
+  const app = initializeApp(firebaseConfig);
+  const database = getDatabase(app);
 
-  //funzione react, isActive è letteralmente lo stato del bottone e viene inizializzato al valore della variabile buttonState
-  const [isActive, setIsActive] = useState(buttonState);
+  //inizializzo isActive, variabile che tiene traccia dello stato del bottone
+  const [isActive, setIsActive] = useState(false);
+
+  //useEffect è una funzione che viene eseguita al montaggio del componente, in questo caso viene eseguita una sola volta
+  //nel caso in cui non si mettesse allora verrebbe eseguita infinite volte
+  useEffect(() => {
+    onValue(ref(database, 'Impostazioni/Status'), (snapshot) => {
+      if (snapshot.val() === 'ON') {
+        //SetCookie('buttonState', true, 2); //i cookie non sono più necessari, lascio l'istruzione per sfizio
+        setIsActive(true); 
+      } else {
+        //SetCookie('buttonState', false, 2); //i cookie non sono più necessari, lascio l'istruzione per sfizio
+        setIsActive(false);
+      }
+      
+    });
+  }, []); // L'array vuoto come secondo argomento significa che questo effetto verrà eseguito solo al montaggio del componente
+  
+  //console.log(isActive);
       
   //Vettore di Strutture dati, sono i dati di ogni singolo bottone, aggiungere elementi qua corrisponde ad aggiungere bottoni
   //alla pagina home
@@ -57,7 +79,7 @@ function App(){
   ];
   
   //console log di quel attributo serve a  vedere i report (eventuali errori) facendo Ispezione Elemento -> Console
-  console.log(isActive);
+  //console.log(isActive);
 
   //funzione che cambia la pagina attiva
   const handlePage = (page) => {
@@ -75,6 +97,7 @@ function App(){
         buttons={buttons} 
         isActive={isActive}  
         setIsActive={setIsActive} 
+        database={database}
       />;
       break;
     case 'Info':

@@ -1,20 +1,12 @@
 import React, { Component , useState } from 'react';
-
 import Button from '../components/button';
-
 import '../style/home.css';
-
-import { GetCookie, SetCookie } from '../functions/cookie.js'; //se ne importo solo una mi da errore
-
-import { initializeApp } from "firebase/app";
+//import { GetCookie, SetCookie } from '../functions/cookie.js'; //se ne importo solo una mi da errore
 import { getDatabase, ref, child, get, set } from "firebase/database";
 
-function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
+function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, database}){
 
   //prova db (connessione + lettura)
-  const firebaseConfig = { databaseURL: "https://seebeyond-8bdb7-default-rtdb.europe-west1.firebasedatabase.app/" };
-  const app = initializeApp(firebaseConfig);
-  const database = getDatabase(app);
   /* lettura (disabilitata in quanto utile solo per verifica)
   const dbRef = ref(getDatabase(app));
   get(child(dbRef, `Impostazioni/Status`)).then((snapshot) => {
@@ -25,21 +17,17 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive}){
       Status : value
     });
   };
-  //fine prova db
 
   //funzione che cambia lo stato del bottone, richiama la funziona passata come props
   const handleSwitchButtonState = () => {
 
     //salva valore di accensione nel db
-    const newState = !isActive;
-    if(newState === true){
+    if((!isActive) === true){
       writeUserData("ON");
-    }
-    else{
+    }else{
       writeUserData("OFF");
-    }//fine codice nuovo (prova)
-
-    SetCookie('buttonState', !isActive, 2); //cambio il valore del cookie
+    }
+    //SetCookie('buttonState', !isActive, 2); //cambio il valore del cookie
     setIsActive(!isActive);
   };  
 
