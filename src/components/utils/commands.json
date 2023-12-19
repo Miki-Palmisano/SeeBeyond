@@ -69,8 +69,8 @@
       "callback": "setShowPopUp"
     },
     {
-      "command": "Quali sono i Comandi",
-      "callback": "setShowPopUp"
+      "command": "Quali sono i comandi",
+      "callback": "setShowPopUp(true)"
     },
     {
       "command": "Che ore sono",
