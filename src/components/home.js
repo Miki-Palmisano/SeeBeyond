@@ -3,6 +3,7 @@ import Button from '../components/button';
 import '../style/home.css';
 //import { GetCookie, SetCookie } from '../functions/cookie.js'; //se ne importo solo una mi da errore
 import { getDatabase, ref, child, get, set } from "firebase/database";
+import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, database}){
 
@@ -30,6 +31,15 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, databas
     //SetCookie('buttonState', !isActive, 2); //cambio il valore del cookie
     setIsActive(!isActive);
   };  
+
+  //funzione che legge l'oggetto riconosciuto nel db dall'AI
+  /*const readDBObject = () => {
+      const dbRef = ref(database);
+      get(child(dbRef, `Impostazioni/Status`)).then((snapshot) => {
+        var tmp = snapshot.val();
+        
+    }).catch((error) => { console.error(error); });
+  }*/
 
   //funzione che cambia la pagina attiva, richiama la funziona passata come props
   const handleSwitchPage = (buttonID) => { 

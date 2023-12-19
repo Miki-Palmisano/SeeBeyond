@@ -20,9 +20,9 @@ const Voice = ({ActivePage, onActivePage}) => {
         let time = hours + ":" + minutes;
         setResponse("Sono le ore " + time);
         SpeechRecognition.stopListening();
-      }, []);
+    }, []);
 
-      const speakDate = useCallback(() => {
+    const speakDate = useCallback(() => {
         let date = new Date();
         let months = date.getMonth();
         let months_string = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
@@ -31,9 +31,9 @@ const Voice = ({ActivePage, onActivePage}) => {
         let data = day + " " + months_string[months] + " " + year;
         setResponse("Oggi è il " + data);
         SpeechRecognition.stopListening();
-      }, []);
+    }, []);
 
-      const speakDateTime = useCallback(() => {
+    const speakDateTime = useCallback(() => {
         let date = new Date();
         //giorno
         let months = date.getMonth();
@@ -47,15 +47,15 @@ const Voice = ({ActivePage, onActivePage}) => {
         let time = hours + ":" + minutes;
         setResponse("Sono le ore " + time + "del " + data);
         SpeechRecognition.stopListening();
-      }, [speakDate, speakTime]);
-    
-      const commandCallback = {
+    }, [speakDate, speakTime]);
+
+    const commandCallback = {
         onActivePage,
         speakTime,
         speakDate,
         speakDateTime
-      }
-    
+    }
+
 
     const executeCommand = (callback, args) => {
         const callbackFunction = commandCallback[callback];

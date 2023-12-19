@@ -116,6 +116,7 @@ function App(){
         buttons={buttons}
         isActive={isActive}
         setIsActive={setIsActive}
+        database={database}
       />;
       break;
     case 'Maps':
