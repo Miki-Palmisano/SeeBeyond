@@ -133,7 +133,7 @@ function App(){
           }
         }).catch((error) => { console.error(error); });
       }
-    }, 10000); // Execute the code every X000 second
+    }, 5000); // Execute the code every X000 second
 
     return () => {
       clearInterval(interval); // Clear the interval when the component is unmounted
@@ -154,7 +154,7 @@ function App(){
       window.speechSynthesis.speak(utterance);
       setObjectName('');
     }
-  }, [isActive, objectName, objectReading]);
+  }, [isActive, objectName]);
 
   let activePage;
 
