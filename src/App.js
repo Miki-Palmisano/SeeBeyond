@@ -82,7 +82,7 @@ function App(){
   const handlePage = (page) => {
     setActivePage(page);
   }
-
+  /*
   //lettura+speaker oggetti riconosciuti da db (impostato ogni 30 secondi)
   const readObjDB = () => {
     const dbRef = ref(database);
@@ -110,7 +110,7 @@ function App(){
     return () => {
       clearInterval(interval); // Pulisci l'intervallo quando il componente viene smontato
     };
-  }, []);
+  }, []);*/
 
   let activePage;
 

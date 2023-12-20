@@ -1,5 +1,5 @@
 import '../style/voice.css'
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useEffect} from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 
@@ -20,6 +20,7 @@ const Voice = ({ActivePage, onActivePage}) => {
         let time = hours + ":" + minutes;
         setResponse("Sono le ore " + time);
         SpeechRecognition.stopListening();
+        setIsActive(false);
     }, []);
 
     const speakDate = useCallback(() => {
@@ -31,6 +32,7 @@ const Voice = ({ActivePage, onActivePage}) => {
         let data = day + " " + months_string[months] + " " + year;
         setResponse("Oggi è il " + data);
         SpeechRecognition.stopListening();
+        setIsActive(false);
     }, []);
 
     const speakDateTime = useCallback(() => {
@@ -47,7 +49,8 @@ const Voice = ({ActivePage, onActivePage}) => {
         let time = hours + ":" + minutes;
         setResponse("Sono le ore " + time + "del " + data);
         SpeechRecognition.stopListening();
-    }, [speakDate, speakTime]);
+        setIsActive(false);
+    }, []);
 
     const commandCallback = {
         onActivePage,
@@ -69,6 +72,7 @@ const Voice = ({ActivePage, onActivePage}) => {
             setResponse(callback);
             SpeechRecognition.stopListening();
         }    
+        
     }
 
     const {
@@ -85,9 +89,19 @@ const Voice = ({ActivePage, onActivePage}) => {
         })),
     });
 
+
+    useEffect(() => {
+        if (!listening && !isActive) {
+            let utterance = new SpeechSynthesisUtterance(response);
+            window.speechSynthesis.speak(utterance);
+            setResponse('');
+        }
+    }, [listening, isActive]);
+
     if (!browserSupportsSpeechRecognition) {
             return <span>Browser doesn't support speech recognition.</span>;
     }
+
     return(
         <>
         {
@@ -109,9 +123,6 @@ const Voice = ({ActivePage, onActivePage}) => {
                                 SpeechRecognition.startListening({continuous: true, language: 'it-IT'});
                             }
                             else {
-                                let utterance = new SpeechSynthesisUtterance(response);
-                                window.speechSynthesis.speak(utterance);
-                                setResponse('');
                                 SpeechRecognition.stopListening();
                             }
                         }
