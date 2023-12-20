@@ -122,28 +122,26 @@ function App(){
   };*/
 
   useEffect(() => {
-    if(objectReading){
-      const dbRef = ref(database);
-      const interval = setInterval(() => {
-        for (let i = 1; i < 3; i++) {
-          get(child(dbRef, ('Oggetti Rilevati/'+i))).then((snapshot) => {
-            const data = snapshot.val();
-            if(data.read === false) {
-              setObjectName('C\'è un '+data.name);
-              update(child(dbRef, ('Oggetti Rilevati/' + i)), {read: true}); // Update 'Read' to true
-            }
-          }).catch((error) => { console.error(error); });
-        }
-      }, 5000); // Execute the code every X000 second
+    const dbRef = ref(database);
+    const interval = setInterval(() => {
+      for (let i = 1; i < 3; i++) {
+        get(child(dbRef, ('Oggetti Rilevati/'+i))).then((snapshot) => {
+          const data = snapshot.val();
+          if(data.read === false) {
+            setObjectName('C\'è un '+data.name);
+            update(child(dbRef, ('Oggetti Rilevati/' + i)), {read: true}); // Update 'Read' to true
+          }
+        }).catch((error) => { console.error(error); });
+      }
+    }, 10000); // Execute the code every X000 second
 
-      return () => {
-        clearInterval(interval); // Clear the interval when the component is unmounted
-      };
-    }
+    return () => {
+      clearInterval(interval); // Clear the interval when the component is unmounted
+    };
   }, []);
 
   useEffect(() => {
-    if(isActive){
+    if(isActive && objectReading){
       /*readObjDB(); // Esegui il codice all'avvio
       const interval = setInterval(readObjDB, 60000); // Esegui il codice ogni 60 secondi
 
@@ -156,7 +154,7 @@ function App(){
       window.speechSynthesis.speak(utterance);
       setObjectName('');
     }
-  }, [isActive, objectName]);
+  }, [isActive, objectName, objectReading]);
 
   let activePage;
 
