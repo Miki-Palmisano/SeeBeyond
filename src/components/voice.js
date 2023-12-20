@@ -71,6 +71,7 @@ const Voice = ({ActivePage, onActivePage}) => {
         } else {
             setResponse(callback);
             SpeechRecognition.stopListening();
+            setIsActive(false);
         }    
         
     }
@@ -88,7 +89,6 @@ const Voice = ({ActivePage, onActivePage}) => {
           },
         })),
     });
-
 
     useEffect(() => {
         if (!listening && !isActive) {
