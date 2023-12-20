@@ -3,9 +3,8 @@ import Button from '../components/button';
 import '../style/home.css';
 //import { GetCookie, SetCookie } from '../functions/cookie.js'; //se ne importo solo una mi da errore
 import { getDatabase, ref, child, get, set } from "firebase/database";
-import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
-function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, database}){
+function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, database, objectReading, onStateObjectReading}){
 
   //prova db (connessione + lettura)
   /* lettura (disabilitata in quanto utile solo per verifica)
@@ -73,6 +72,8 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, databas
           buttonImgInactive={button.img_inactive}
           onSwitchButtonState={handleSwitchButtonState}
           onSwitchPage={handleSwitchPage}
+          objectReading={objectReading}
+          onStateObjectReading={onStateObjectReading}
         />
       ))}
     </>

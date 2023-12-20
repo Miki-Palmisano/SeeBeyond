@@ -35,7 +35,7 @@ import OnOffImageActive from './images/OnOff-active.png';
 import OnOffImageInactive from './images/OnOff-inactive.png';
 
 import { initializeApp } from "firebase/app";
-import { getDatabase, ref, child, get, set } from "firebase/database";
+import { getDatabase, ref, child, get, set, update } from "firebase/database";
 import { onValue } from "firebase/database";
 
 function App(){
@@ -50,6 +50,9 @@ function App(){
 
   //inizializzo isActive, variabile che tiene traccia dello stato del bottone
   const [isActive, setIsActive] = useState(false);
+
+  const [objectName, setObjectName] = useState('');
+  const [objectReading, setObjectReading] = useState(false);
 
   //useEffect è una funzione che viene eseguita al montaggio del componente, in questo caso viene eseguita una sola volta
   //nel caso in cui non si mettesse allora verrebbe eseguita infinite volte
@@ -78,11 +81,26 @@ function App(){
   //console log di quel attributo serve a  vedere i report (eventuali errori) facendo Ispezione Elemento -> Console
   //console.log(isActive);
 
+  const handleIsActive = () => {
+    setIsActive(!isActive);
+    let utterance = new SpeechSynthesisUtterance('SeeBeyond ' + (isActive ? 'disattivato' : 'attivato'));
+    window.speechSynthesis.speak(utterance);
+  }
+
   //funzione che cambia la pagina attiva
   const handlePage = (page) => {
     setActivePage(page);
+    let utterance = new SpeechSynthesisUtterance('Pagina ' + page);
+    window.speechSynthesis.speak(utterance);
   }
-  
+
+  const handleStateObjectReading = () => {
+    setObjectReading(!objectReading);
+    console.log(objectReading);
+    let utterance = new SpeechSynthesisUtterance('Lettura oggetti ' + (objectReading ? 'disattivata' : 'attivata'));
+    window.speechSynthesis.speak(utterance);
+  }
+  /*
   //lettura+speaker oggetti riconosciuti da db (impostato ogni 30 secondi)
   const readObjDB = () => {
     const dbRef = ref(database);
@@ -101,18 +119,44 @@ function App(){
       let utterance = new SpeechSynthesisUtterance(snapshot.val());
       window.speechSynthesis.speak(utterance);
     }).catch((error) => { console.error(error); });
-  };
+  };*/
+
+  useEffect(() => {
+    if(objectReading){
+      const dbRef = ref(database);
+      const interval = setInterval(() => {
+        for (let i = 1; i < 3; i++) {
+          get(child(dbRef, ('Oggetti Rilevati/'+i))).then((snapshot) => {
+            const data = snapshot.val();
+            if(data.read === false) {
+              setObjectName('C\'è un '+data.name);
+              update(child(dbRef, ('Oggetti Rilevati/' + i)), {read: true}); // Update 'Read' to true
+            }
+          }).catch((error) => { console.error(error); });
+        }
+      }, 5000); // Execute the code every X000 second
+
+      return () => {
+        clearInterval(interval); // Clear the interval when the component is unmounted
+      };
+    }
+  }, []);
 
   useEffect(() => {
     if(isActive){
-      readObjDB(); // Esegui il codice all'avvio
+      /*readObjDB(); // Esegui il codice all'avvio
       const interval = setInterval(readObjDB, 60000); // Esegui il codice ogni 60 secondi
 
       return () => {
         clearInterval(interval); // Pulisci l'intervallo quando il componente viene smontato
-      };
+      };*/
+
+      console.log(objectName);
+      let utterance = new SpeechSynthesisUtterance(objectName);
+      window.speechSynthesis.speak(utterance);
+      setObjectName('');
     }
-  }, [isActive]);
+  }, [isActive, objectName]);
 
   let activePage;
 
@@ -124,8 +168,10 @@ function App(){
         onActivePage={handlePage} 
         buttons={buttons} 
         isActive={isActive}  
-        setIsActive={setIsActive} 
+        setIsActive={handleIsActive} 
         database={database}
+        objectReading={objectReading}
+        onStateObjectReading={handleStateObjectReading}
       />;
       break;
     case 'Info':
