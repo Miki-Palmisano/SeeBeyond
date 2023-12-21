@@ -83,7 +83,7 @@ function App(){
 
   const handleIsActive = () => {
     setIsActive(!isActive);
-    let utterance = new SpeechSynthesisUtterance('SeeBeyond ' + (isActive ? 'disattivato' : 'attivato'));
+    let utterance = new SpeechSynthesisUtterance('App ' + (isActive ? 'scollegata' : 'collegata'));
     window.speechSynthesis.speak(utterance);
   }
 
@@ -100,26 +100,6 @@ function App(){
     let utterance = new SpeechSynthesisUtterance('Lettura oggetti ' + (objectReading ? 'disattivata' : 'attivata'));
     window.speechSynthesis.speak(utterance);
   }
-  /*
-  //lettura+speaker oggetti riconosciuti da db (impostato ogni 30 secondi)
-  const readObjDB = () => {
-    const dbRef = ref(database);
-    get(child(dbRef, 'Oggetti Riconosciuti/Veicolo')).then((snapshot) => {
-      console.log(snapshot.val());
-      let utterance = new SpeechSynthesisUtterance(snapshot.val());
-      window.speechSynthesis.speak(utterance);
-    }).catch((error) => { console.error(error); });
-    get(child(dbRef, 'Oggetti Riconosciuti/Segnale')).then((snapshot) => {
-      console.log(snapshot.val());
-      let utterance = new SpeechSynthesisUtterance(snapshot.val());
-      window.speechSynthesis.speak(utterance);
-    }).catch((error) => { console.error(error); });
-    get(child(dbRef, 'Oggetti Riconosciuti/Animale')).then((snapshot) => {
-      console.log(snapshot.val());
-      let utterance = new SpeechSynthesisUtterance(snapshot.val());
-      window.speechSynthesis.speak(utterance);
-    }).catch((error) => { console.error(error); });
-  };*/
 
   useEffect(() => {
     const dbRef = ref(database);
