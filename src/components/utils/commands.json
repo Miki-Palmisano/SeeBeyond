@@ -89,6 +89,14 @@
       "callback": "speakDateTime"
     },
     {
+      "command": "Che giorno e ora sono",
+      "callback": "speakDateTime"
+    },
+    {
+      "command": "Che ore e giorno sono",
+      "callback": "speakDateTime"
+    },
+    {
       "command": "Come Stai",
       "callback": "sicuramente meglio di te"
     }

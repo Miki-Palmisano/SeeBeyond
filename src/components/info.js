@@ -14,9 +14,9 @@ function Info ({ActivePage, onActivePage}){
                 <p className="InfoP">
                     SeeBeyond &egrave; un progetto, ideato da un gruppo di studenti del politecnico di Bari, rivolto alle persone con acuit&agrave; visiva che cercano soluzioni innovative ed efficaci per orientarsi in qualsiasi tipo di ambiente.<br/>
                     Funzionalit&agrave; dell'App:<br/>
-                    - Riconoscimento di oggetti e testo<br/>
-                    - Assistente vocale<br/>
-                    - Assistenza alla mobilit&agrave;
+                    - Riconoscimento di oggetti e testo (doppio-tap sul bottone di accensione per attivare/disattivare)<br/>
+                    - Assistente vocale personalizzato per muoversi nell'app e per informazioni utili<br/>
+                    - Assistenza alla mobilit&agrave; programmando il miglior percorso a piedi per la destinazione inserita<br/>
                 </p>
             </div>
             <div className="InfoButtonContainer">
