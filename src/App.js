@@ -108,7 +108,7 @@ function App(){
         get(child(dbRef, ('Oggetti Rilevati/'+i))).then((snapshot) => {
           const data = snapshot.val();
           if(data.read === false) {
-            setObjectName('C\'è un '+data.name);
+            setObjectName('C\'è un '+data.name+" a "+parseInt(data.distance)+" metri");
             update(child(dbRef, ('Oggetti Rilevati/' + i)), {read: true}); // Update 'Read' to true
           }
         }).catch((error) => { console.error(error); });
