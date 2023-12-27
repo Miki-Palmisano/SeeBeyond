@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../style/button.css';
-import { clear } from '@testing-library/user-event/dist/clear';
 
 function Button({buttonState, buttonName, buttonImgActive, buttonImgInactive, onSwitchButtonState, buttonID, onSwitchPage, objectReading, onStateObjectReading}){
 
