@@ -2,7 +2,7 @@ import React, { Component , useState } from 'react';
 import Button from '../components/button';
 import '../style/home.css';
 //import { GetCookie, SetCookie } from '../functions/cookie.js'; //se ne importo solo una mi da errore
-import { getDatabase, ref, child, get, set } from "firebase/database";
+import { getDatabase, ref, child, get, set, update } from "firebase/database";
 
 function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, database, objectReading, onStateObjectReading}){
 
@@ -13,8 +13,8 @@ function Home({ActivePage, onActivePage, buttons, isActive, setIsActive, databas
     if (snapshot.val() === "ON") { console.log(snapshot.val()); }
   }).catch((error) => { console.error(error); }); */
   const writeUserData = (value) => {
-    set(ref(database, 'Impostazioni/'), {
-      Status : value
+    update(ref(database, 'Impostazioni/'), {
+      StatusApp : value
     });
   };
 

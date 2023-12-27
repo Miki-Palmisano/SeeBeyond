@@ -58,7 +58,7 @@ function App(){
   //nel caso in cui non si mettesse allora verrebbe eseguita infinite volte
   useEffect(() => {
     onValue(ref(database, 'Impostazioni'), (snapshot) => {
-      if (snapshot.val().Status === 'ON') {
+      if (snapshot.val().StatusApp === 'ON') {
         //SetCookie('buttonState', true, 2); //i cookie non sono più necessari, lascio l'istruzione per sfizio
         setIsActive(true); 
       } else {
@@ -86,7 +86,12 @@ function App(){
   //funzione che cambia lo stato del bottone e usa il TTS per comunicare lo stato
   const handleIsActive = () => {
     setIsActive(!isActive);
-    if(isActive){ setObjectReading(false); }
+    if(isActive){ 
+      setObjectReading(false);
+      update(ref(database, 'Impostazioni/'), {
+        StatusObjectReading : 'OFF'
+      });
+    }
     let utterance = new SpeechSynthesisUtterance('App ' + (isActive ? 'scollegata' : 'collegata'));
     window.speechSynthesis.speak(utterance);
   }
@@ -105,6 +110,9 @@ function App(){
     if(isActive){
       setObjectReading(!objectReading);
       console.log(objectReading);
+      update(ref(database, 'Impostazioni/'), {
+        StatusObjectReading : objectReading ? 'OFF' : 'ON'
+      });
       let utterance = new SpeechSynthesisUtterance('Lettura oggetti ' + (objectReading ? 'disattivata' : 'attivata'));
       window.speechSynthesis.speak(utterance);
     }
