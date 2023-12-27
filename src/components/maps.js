@@ -1,5 +1,6 @@
+import { set } from 'firebase/database';
 import '../style/maps.css'
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 function Maps({ActivePage, onActivePage}){
@@ -10,15 +11,33 @@ function Maps({ActivePage, onActivePage}){
 
     const [isActive, setIsActive] = useState(false); //ceck testo label
 
-    const [stringDestinazione, setStringDestinazione] = useState("INDIRIZZO RILEVATO");
-
-    
+    const [stringDestinazione, setStringDestinazione] = useState("");
 
     const {
         transcript,
         listening,
         resetTranscript,
     } = useSpeechRecognition({}); 
+
+    useEffect(() => {
+        let timeoutId;
+        let transcript_old = "";
+
+        if (listening) {
+            timeoutId = setTimeout(() => {
+                if(transcript === transcript_old){
+                    setStringDestinazione(transcript);
+                    SpeechRecognition.stopListening();
+                    setIsActive(false);
+                }
+            }, 3000);
+            transcript_old = transcript;
+        }
+
+        return () => {
+            clearTimeout(timeoutId);
+        };
+    }, [listening, transcript]);
 
     return(
         <>  
@@ -42,8 +61,8 @@ function Maps({ActivePage, onActivePage}){
             <button className="MapsContainer">
                 <h1 className="MapsButton" onClick={() =>  {
                     const destination = encodeURIComponent(stringDestinazione);
-                    const url = `https://www.google.com/maps/dir/?api=1&travelmode=walking&destination=${destination}`;
-                    window.open(url);}}>
+                    var url = `https://www.google.com/maps/dir/?api=1&destination=${destination}`;
+                    window.open(url,'_blank');}}>
                         AVVIA MAPS
                 </h1>
             </button>
