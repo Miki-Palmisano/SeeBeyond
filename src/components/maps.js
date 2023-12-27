@@ -62,7 +62,7 @@ function Maps({ActivePage, onActivePage}){
                 <h1 className="MapsButton" onClick={() =>  {
                     const destination = encodeURIComponent(stringDestinazione);
                     var url = `https://www.google.com/maps/dir/?api=1&destination=${destination}`;
-                    window.open(url,'_blank');}}>
+                    window.location.href = url;}}>
                         AVVIA MAPS
                 </h1>
             </button>
